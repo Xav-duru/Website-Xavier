@@ -40,10 +40,21 @@
                     Suède
                 </a>
             </li>
+            <li class="btn">
+                <a href="trek.html" target="_">
+                    football
+                </a>
+            </li>
+            <li class="btn">
+                <a href="trek.html" target="_">
+                    Cyclisme
+                </a>
+            </li>
         </ul>
     </nav>
     
-    
+    <?php
+    /*
     <!-- The content -->
     <div id="content">
         <div class = "leftbox">
@@ -58,6 +69,8 @@
             </button>
         </div>
     </div>
+    */
+    ?>
 
     <!-- footer -->
     <footer>
