@@ -17,8 +17,6 @@
         </h1>
     </header>
 
-
-
     <!-- Navigation menu -->
     <nav class="menu-nav">
         <ul>
