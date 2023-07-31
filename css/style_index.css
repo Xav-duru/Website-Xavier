@@ -16,11 +16,22 @@ div.connection {
     border-color: #123456;
     border-width: 5px;
     text-align: center;
-    display:inline-block;
-
+    display: inline-block;
 }
 
-#formsend{
+#idFormsendConnection{
     padding: 10px;
     margin-top: 10px;
 }
+
+div.creation {
+    text-align: center;
+    padding: 10px;
+    border-style: solid;
+    border-color: #123456;
+    border-width: 5px;
+    text-align: center;
+    display: inline-block;
+}
+
+.error {color: #FF0000;}
