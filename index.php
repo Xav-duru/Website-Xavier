@@ -27,22 +27,27 @@
                 WHERE pseudo = '".$pseudo_escaped."'
                 AND password = '".$password_escaped."'";
 
-                echo $sql;
-
                 $result = $mysqli->query($sql);
+
+                //Récupère le nombre de ligne dont le résultat est vrai
                 $nb = $result->num_rows;
 
-                if (!$result) {
+                if (!$result) { 
                     exit($mysqli->error);
                 }
-                //$nb = $result->num_rows;
                 else if($nb) { 
-                    //récupération de l’id du User
+                    //Créé un tableau avec les différentes valeurs
                     $row = $result->fetch_assoc();
+
+                    //Récupère la session de l'id de l'utilisateur
                     $_SESSION['compte'] = $row['idUsers'];
+
+                    //Récupère le numéro de l'id de l'utilisateur
                     $num = $row['idUsers'];
+                    echo $num;?><br><?php
+
                     $mysqli->close();
-                    header('location:page.php');
+                    //header('location:page.php');
                 }
             } 
             
@@ -74,16 +79,23 @@
             if(empty($_POST['gender'])){ $genderErr = 'Gender is required';}
             else{$gender  = $_POST['gender'];}
 
-            if(empty($_POST['pseudo'])){ 
-                if(empty("SELECT * FROM Users WHERE pseudo = '$pseudo'")){
-                    $pseudo = 'Pseudo is already used';
+            if(empty($_POST['pseudo'])){ $pseudoErr = 'Pseudo is required';}
+            else{
+                $sql_pseudo = "SELECT pseudo
+                FROM Users 
+                WHERE pseudo = '".$_POST['pseudo']."'";
+
+                $result_pseudo = $mysqli->query($sql_pseudo);   
+                $etat = true;
+                while ($row_pseudo = $result_pseudo->fetch_assoc()){
+                    $etat = false;
+                }
+                if ($etat) { 
+                    $pseudo  = $_POST['pseudo'];
                 }
                 else{ 
-                    $pseudo = 'Pseudo is required';
+                    $pseudoErr = 'Pseudo is already used';
                 }
-            }
-            else{
-                $pseudo  = $_POST['pseudo'];
             }
 
             if(empty($_POST['password'])){ $passwordErr = 'Password is required';}
@@ -95,15 +107,56 @@
             if(empty($_POST['securityCode'])){ $securityCodeErr = 'SecurityCode is required';}
             else{$securityCode  = $_POST['securityCode'];}
 
-            $sql = "SELECT *
-            FROM Users";
+            /*
+            $sqlQuery = 'SELECT * FROM users';
+            $userStatement = $mysqli->prepare($sqlQuery);
+            $userStatement->execute();
+            $users = $userStatement->fetchAll();
+            */
+
+            /**
+             * Lorsque tous les champs ont été correctement rempli, et que le bouton Soumettre a été appuyé, on cherche à ajouter
+             * l'utilisateur dans la BDD.
+             */
+
+             /*
+             echo $name;
+             echo $surname;
+             echo $gender;
+             echo $pseudo;
+             echo $password;
+             echo $securityCode;
+            */
+
+
 
             if($nameErr =="" && $surnameErr =="" && $genderErr =="" && $pseudoErr =="" && $passwordErr =="" && $password2Err =="" && $securityCodeErr ==""){
-                $last_id = $mysqli->insert_id;
-                echo $last_id;
-                //"INSERT INTO Users VALUES(($nbLignes+1), $surname, $name, $pseudo, $password, $securityCode)";
+             
+                $sql_count = "SELECT idUsers
+                FROM Users";
+
+                $result_count = $mysqli->query($sql_count);
+
+                //Récupère le nombre de ligne dont le résultat est vrai
+                $nb_count = $result_count->num_rows;
+                $nb_ajout = $nb_count+1;
+                echo $nb_ajout;
+                
+                $sql_add = "INSERT INTO Users (idUsers, surname, name, pseudo, password, securityCode)
+                 VALUES('$nb_ajout', '$surname', '$name', '$pseudo', '$password', '$securityCode')";
+                 if (mysqli_query($mysqli, $sql_add)) {
+                    echo "Nouveau enregistrement créé avec succès";
+              } else {
+                    echo "Erreur : " . $sql_add . "<br>" . mysqli_error($mysqli);
+              }
+                /*
+                $result_add = $mysqli->query($sql_add);
+                $row_add = $result_add->fetch_assoc();
+                */
+
             }  
         }
+        
         ?>
         <h1>
             Première fois ? Inscrit toi !
