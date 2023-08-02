@@ -10,198 +10,199 @@
 
 </head>
 <body>
-    <div class="connection">
-        
-        <?php
-        if(isset($_POST['formsendConnection'])){
-            $pseudoConnection = $_POST['pseudoConnection'];
-            $passwordConnection = $_POST['passwordConnection'];
-            if(!empty($pseudoConnection) && !empty($passwordConnection)){
-                //La fonction real_escape_string, fonction de mysqli, protège les caractères spéciaux
-                //d’une chaîne pour en permettre l’utilisation dans une requête SQL.
-                $pseudo_escaped = $mysqli->real_escape_string(trim($pseudoConnection));
-                $password_escaped = $mysqli->real_escape_string(trim($passwordConnection));
-                
-                $sql = "SELECT idUsers
-                FROM Users
-                WHERE pseudo = '".$pseudo_escaped."'
-                AND password = '".$password_escaped."'";
-
-                $result = $mysqli->query($sql);
-
-                //Récupère le nombre de ligne dont le résultat est vrai
-                $nb = $result->num_rows;
-
-                if (!$result) { 
-                    exit($mysqli->error);
-                }
-                else if($nb) { 
-                    //Créé un tableau avec les différentes valeurs
-                    $row = $result->fetch_assoc();
-
-                    //Récupère la session de l'id de l'utilisateur
-                    $_SESSION['compte'] = $row['idUsers'];
-
-                    //Récupère le numéro de l'id de l'utilisateur
-                    $num = $row['idUsers'];
-                    echo $num;?><br><?php
-
-                    $mysqli->close();
-                    //header('location:page.php');
-                }
-            } 
-            
-        }
-        ?>
+    <div class='title'>
         <h1>
-            Salut, commence par te connecter !
+            Bienvenue sur le site de Xavier
         </h1>
-        <form method="post">
-            <input type="text" name="pseudoConnection" id="idPseudoConnection" value="" placeholder="Ton pseudo" required>
-            <input type="password" name="passwordConnection" id="idPasswordConnection" placeholder="Mot de passe" value="" required><br>
-            <input type="submit" name="formsendConnection" id="idFormsendConnection">
-        </form>
-
     </div>
-     
-    <div class="creation">
-        <?php
-        $nameErr = $surnameErr = $genderErr = $pseudoErr = $passwordErr = $password2Err = $securityCodeErr ="";
-        $name = $surname = $gender = $pseudo = $password = $password2 = $securityCode ="";
+    <div class="mainbox">
+        <div class="connection">
+            
+            <?php
+            if(isset($_POST['formsendConnection'])){
+                $pseudoConnection = $_POST['pseudoConnection'];
+                $passwordConnection = $_POST['passwordConnection'];
+                if(!empty($pseudoConnection) && !empty($passwordConnection)){
+                    //La fonction real_escape_string, fonction de mysqli, protège les caractères spéciaux
+                    //d’une chaîne pour en permettre l’utilisation dans une requête SQL.
+                    $pseudo_escaped = $mysqli->real_escape_string(trim($pseudoConnection));
+                    $password_escaped = $mysqli->real_escape_string(trim($passwordConnection));
+                    
+                    $sql = "SELECT idUsers
+                    FROM Users
+                    WHERE pseudo = '".$pseudo_escaped."'
+                    AND password = '".$password_escaped."'";
 
-        if(isset($_POST['formsend'])){
-            if(empty($_POST['name'])){ $nameErr = 'Name is required';}
-            else{$name  = $_POST['name'];}
+                    $result = $mysqli->query($sql);
 
-            if(empty($_POST['surname'])){ $surnameErr = 'Surname is required';}
-            else{$surname  = $_POST['surname'];}
+                    //Récupère le nombre de ligne dont le résultat est vrai
+                    $nb = $result->num_rows;
 
-            if(empty($_POST['gender'])){ $genderErr = 'Gender is required';}
-            else{$gender  = $_POST['gender'];}
+                    if (!$result) { 
+                        exit($mysqli->error);
+                    }
+                    else if($nb) { 
+                        //Créé un tableau avec les différentes valeurs
+                        $row = $result->fetch_assoc();
 
-            if(empty($_POST['pseudo'])){ $pseudoErr = 'Pseudo is required';}
-            else{
-                $sql_pseudo = "SELECT pseudo
-                FROM Users 
-                WHERE pseudo = '".$_POST['pseudo']."'";
+                        //Récupère la session de l'id de l'utilisateur
+                        $_SESSION['compte'] = $row['idUsers'];
 
-                $result_pseudo = $mysqli->query($sql_pseudo);   
-                $etat = true;
-                while ($row_pseudo = $result_pseudo->fetch_assoc()){
-                    $etat = false;
-                }
-                if ($etat) { 
-                    $pseudo  = $_POST['pseudo'];
-                }
-                else{ 
-                    $pseudoErr = 'Pseudo is already used';
-                }
-            }
+                        //Récupère le numéro de l'id de l'utilisateur
+                        $num = $row['idUsers'];
+                        echo $num;?><br><?php
 
-            if(empty($_POST['password'])){ $passwordErr = 'Password is required';}
-            else{$password  = $_POST['password'];}
-
-            if($_POST['password2']!=$_POST['password']){ $password2Err = "passwords don't match";}
-            else{$password2  = $_POST['password2'];}
-
-            if(empty($_POST['securityCode'])){ $securityCodeErr = 'SecurityCode is required';}
-            else{$securityCode  = $_POST['securityCode'];}
-
-            /*
-            $sqlQuery = 'SELECT * FROM users';
-            $userStatement = $mysqli->prepare($sqlQuery);
-            $userStatement->execute();
-            $users = $userStatement->fetchAll();
-            */
-
-            /**
-             * Lorsque tous les champs ont été correctement rempli, et que le bouton Soumettre a été appuyé, on cherche à ajouter
-             * l'utilisateur dans la BDD.
-             */
-
-             /*
-             echo $name;
-             echo $surname;
-             echo $gender;
-             echo $pseudo;
-             echo $password;
-             echo $securityCode;
-            */
-
-
-
-            if($nameErr =="" && $surnameErr =="" && $genderErr =="" && $pseudoErr =="" && $passwordErr =="" && $password2Err =="" && $securityCodeErr ==""){
-             
-                $sql_count = "SELECT idUsers
-                FROM Users";
-
-                $result_count = $mysqli->query($sql_count);
-
-                //Récupère le nombre de ligne dont le résultat est vrai
-                $nb_count = $result_count->num_rows;
-                $nb_ajout = $nb_count+1;
-                echo $nb_ajout;
+                        $mysqli->close();
+                        //header('location:page.php');
+                    }
+                } 
                 
-                $sql_add = "INSERT INTO Users (idUsers, surname, name, pseudo, password, securityCode)
-                 VALUES('$nb_ajout', '$surname', '$name', '$pseudo', '$password', '$securityCode')";
-                 if (mysqli_query($mysqli, $sql_add)) {
-                    echo "Nouveau enregistrement créé avec succès";
-              } else {
-                    echo "Erreur : " . $sql_add . "<br>" . mysqli_error($mysqli);
-              }
-                /*
-                $result_add = $mysqli->query($sql_add);
-                $row_add = $result_add->fetch_assoc();
-                */
+            }
+            ?>
+            <h1>
+                Connection
+            </h1>
+            <form method="post">
+                <label for="idpseudo">Pseudo : </label>
+                <input type="text" name="pseudoConnection" id="idPseudoConnection" value="" placeholder="Ton pseudo" required><br><br>
 
-            }  
-        }
+                <label for="idpassword">Mot de passe : </label>
+                <input type="password" name="passwordConnection" id="idPasswordConnection" placeholder="Mot de passe" value="" required><br><br>
+                
+                <input type="submit" name="formsendConnection" id="idFormsendConnection"><br><br>
+
+                <a href="motDePasseOublie.php" target="_blank">
+                    Mot de passe oublié ?
+                </a>
+            </form>
+
+        </div>
         
-        ?>
-        <h1>
-            Première fois ? Inscrit toi !
-        </h1>   
-        <form method="post">
-            <label for="idName">Prénom : </label>
-            <input type="text" name="name" id="idName" placeholder="Prénom">
-            <span class="error">* <?php echo $nameErr?> </span>
-            <br><br>
+        <div class="creation">
+            <?php
+            $nameErr = $surnameErr = $genderErr = $pseudoErr = $passwordErr = $password2Err = $securityCodeErr ="";
+            $name = $surname = $gender = $pseudo = $password = $password2 = $securityCode ="";
+            $confirmeCreation = "";
 
-            <label for="idSurname">Nom : </label>
-            <input type="text" name="surname" id="idSurname" placeholder="Nom">
-            <span class="error">* <?php echo $surnameErr?> </span>
-            <br><br>
+            if(isset($_POST['formsend'])){
+                if(empty($_POST['name'])){ $nameErr = 'Name is required';}
+                else{$name  = $_POST['name'];}
 
-            <label for="idGender">Genre : </label>
-            <input type="radio" name="gender" value="female">Femme
-            <input type="radio" name="gender" value="male">Homme
-            <span class="error">* <?php echo $genderErr;?></span>
-            <br><br>
+                if(empty($_POST['surname'])){ $surnameErr = 'Surname is required';}
+                else{$surname  = $_POST['surname'];}
 
-            <label for="idpseudo">Pseudo : </label>
-            <input type="text" name="pseudo" id="idPseudo" placeholder="Pseudo">
-            <span class="error">* <?php echo $pseudoErr?> </span>
-            <br><br>
+                if(empty($_POST['gender'])){ $genderErr = 'Gender is required';}
+                else{$gender  = $_POST['gender'];}
 
-            <label for="idpassword">Mot de passe : </label>
-            <input type="password" name="password" id="idPassword" placeholder="Mot De Passe">
-            <span class="error">* <?php echo $passwordErr?> </span>
-            <br><br>
+                if(empty($_POST['pseudo'])){ $pseudoErr = 'Pseudo is required';}
+                else{
+                    /**
+                     * On cherche à vérifier que le pseudo n'est pas déja utilisé
+                     */
+                    $sql_pseudo = "SELECT pseudo
+                    FROM Users 
+                    WHERE pseudo = '".$_POST['pseudo']."'";
 
-            <label for="idPassword2">Rentre à nouveau ton mot de passe : </label><br>
-            <input type="password" name="password2" id="idPassword2" placeholder="Mot De Passe">
-            <span class="error">* <?php echo $password2Err?> </span>
-            <br><br>
+                    $result_pseudo = $mysqli->query($sql_pseudo);   
+                    $etat = true;
+                    while ($row_pseudo = $result_pseudo->fetch_assoc()){
+                        $etat = false;
+                    }
+                    if ($etat) { 
+                        $pseudo  = $_POST['pseudo'];
+                    }
+                    else{ 
+                        $pseudoErr = 'Pseudo is already used';
+                    }
+                }
 
-            <label for="idSecurityCode">Entre de code de sécurité en cas d'oubli de mot de passe : </label><br>
-            <input type="text" name="securityCode" id="idSecurityCode" placeholder="Code De Sécurité">
-            <span class="error">* <?php echo $securityCodeErr?> </span>
-            <br><br>
+                if(empty($_POST['password'])){ $passwordErr = 'Password is required';}
+                else{$password  = $_POST['password'];}
 
-            <label for="idFormsend">Valide ton inscription</label><br>
-            <input type="submit" name="formsend" id="idFormsendConnection">
-            <br><br>
-        </form>
+                if($_POST['password2']!=$_POST['password']){ $password2Err = "passwords don't match";}
+                else{$password2  = $_POST['password2'];}
+
+                if(empty($_POST['securityCode'])){ $securityCodeErr = 'SecurityCode is required';}
+                else{$securityCode  = $_POST['securityCode'];}
+
+                /**
+                 * Lorsque tous les champs ont été correctement rempli, et que le bouton Soumettre a été appuyé, on cherche à ajouter
+                 * l'utilisateur dans la BDD.
+                 */
+                if($nameErr =="" && $surnameErr =="" && $genderErr =="" && $pseudoErr =="" && $passwordErr =="" && $password2Err =="" && $securityCodeErr ==""){
+                
+                    $sql_count = "SELECT idUsers
+                    FROM Users";
+
+                    $result_count = $mysqli->query($sql_count);
+
+                    //Récupère le nombre de ligne dont le résultat est vrai
+                    $nb_count = $result_count->num_rows;
+
+                    //On fait +1 pour ajouter le nouvel utilisateur à la ligne suivante
+                    $nb_ajout = $nb_count+1;
+                    
+                    $sql_add = "INSERT INTO Users (idUsers, surname, name, pseudo, password, securityCode)
+                    VALUES('$nb_ajout', '$surname', '$name', '$pseudo', '$password', '$securityCode')";
+                    if (mysqli_query($mysqli, $sql_add)) {
+                        $confirmeCreation = 'Bravo ! Ton compte a bien été créé !';
+                    } 
+                    else {
+                        echo "Erreur : " . $sql_add . "<br>" . mysqli_error($mysqli);
+                    }
+
+                }  
+            }
+            
+            ?>
+            <h1>
+                Inscription
+            </h1>   
+            <form method="post">
+                <label for="idName">Prénom : </label>
+                <input type="text" name="name" id="idName" placeholder="Prénom">
+                <span class="error">* <?php echo $nameErr?> </span>
+                <br><br>
+
+                <label for="idSurname">Nom : </label>
+                <input type="text" name="surname" id="idSurname" placeholder="Nom">
+                <span class="error">* <?php echo $surnameErr?> </span>
+                <br><br>
+
+                <label for="idGender">Genre : </label>
+                <input type="radio" name="gender" value="female">Femme
+                <input type="radio" name="gender" value="male">Homme
+                <span class="error">* <?php echo $genderErr;?></span>
+                <br><br>
+
+                <label for="idpseudo">Pseudo : </label>
+                <input type="text" name="pseudo" id="idPseudo" placeholder="Pseudo">
+                <span class="error">* <?php echo $pseudoErr?> </span>
+                <br><br>
+
+                <label for="idpassword">Mot de passe : </label>
+                <input type="password" name="password" id="idPassword" placeholder="Mot De Passe">
+                <span class="error">* <?php echo $passwordErr?> </span>
+                <br><br>
+
+                <label for="idPassword2">Rentre à nouveau ton mot de passe : </label><br>
+                <input type="password" name="password2" id="idPassword2" placeholder="Mot De Passe">
+                <span class="error">* <?php echo $password2Err?> </span>
+                <br><br>
+
+                <label for="idSecurityCode">Entre de code de sécurité en cas d'oubli de mot de passe : </label><br>
+                <input type="text" name="securityCode" id="idSecurityCode" placeholder="Code De Sécurité">
+                <span class="error">* <?php echo $securityCodeErr?> </span>
+                <br><br>
+
+                <label for="idFormsend">Valide ton inscription :</label><br>
+                <input type="submit" name="formsend" id="idFormsendConnection">
+                <br>
+
+                <?php echo $confirmeCreation?>
+
+            </form>
+        </div>
 
         
     </div>

@@ -5,19 +5,37 @@ header h1{
     border-width: 5px;
 }
 
-body{
-    text-align: center;
+div.title{
+    padding-left: 520px;
+    color: #123456;
+}
+
+div.mainbox{
+    display:inline-flex;
+    padding: 1px; 
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
 }
 
 div.connection {
+    flex : inline-block;
+    width: 500px;
+    margin-right: 20px;
+    margin-left: 190px;
     text-align: center;
+    background-color: #9e4bb9;
     padding: 10px;
     border-style: solid;
     border-color: #123456;
     border-width: 5px;
-    text-align: center;
-    display: inline-block;
+    border-radius: 20px;
+    color:#e4d832;
 }
+
+div.connection a{
+    color:#e4d832;
+}
+
 
 #idFormsendConnection{
     padding: 10px;
@@ -25,13 +43,18 @@ div.connection {
 }
 
 div.creation {
+    flex :inline-block;
+    padding: 10px;
+    background-color: #e4d832;
+    width: 500px;
     text-align: center;
     padding: 10px;
     border-style: solid;
     border-color: #123456;
     border-width: 5px;
-    text-align: center;
-    display: inline-block;
+    border-radius: 20px;
+    color:#9e4bb9;
+
 }
 
-.error {color: #FF0000;}
+.error {color: red;}
