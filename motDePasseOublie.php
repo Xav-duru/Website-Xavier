@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        function changeButtonState() {
+            var buttonPseudo = document.getElementsById('idValidePseudo')[0];
+            var buttonSecurityCode = document.getElementById("idValideSecurityCode");
+
+            // Disable the button on initial page load
+            buttonSecurityCode.disabled = true;
+
+            //add event listener
+            buttonPseudo.addEventListener('idValidePseudo', function(event) {
+                buttonSecurityCode.disabled = !buttonSecurityCode.disabled;
+            });
+        }
+    </script>
+    <?php include ('core.php'); ?>
 </head>
 <body>
     <?php
@@ -11,22 +26,23 @@
     
 
     if(isset($_POST['validePseudo'])){
-        $pseudo = $_POST['validePseudo'];
+        $pseudoOublie = $_POST['pseudoOublie'];
         
-        $sql_pseudo = "SELECT pseudo
+        $sql_pseudoOublie = "SELECT pseudo
         FROM Users 
-        WHERE pseudo = '".$pseudo."'";
+        WHERE pseudo = '".$pseudoOublie."'";
 
-        $result_pseudo = $mysqli->query($sql_pseudo);   
-        $etat = true;
-        while ($row_pseudo = $result_pseudo->fetch_assoc()){
-            $etat = false;
+        $result_pseudoOublie = $mysqli->query($sql_pseudoOublie);   
+        echo $sql_pseudoOublie;
+        $etatOublie = false;
+        while ($row_pseudoOublie = $result_pseudoOublie->fetch_assoc()){
+            $etatOublie = true;
         }
-        if ($etat) { 
-            $pseudoOublieErr = "Le pseudo n'existe pas";
+        if ($etatOublie) {
+            changeButtonState()>;
         }
         else{ 
-            pseudoOublie.prop("disabled", true);
+            $pseudoOublieErr = "Le pseudo n'existe pas";
         }
     }
 
