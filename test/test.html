@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+
+<div id="demo">
+<p>Let AJAX change this text.</p>
+<button type="button" id="bouton" onclick="loadDoc()">Change Content</button>
+<button type="submit" id="boutonState">Change state</button>
+
+
+</div>
+
+<script>
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    if (document.getElementById("boutonState").disabled){
+      document.getElementById("boutonState").disabled = false;
+    }else{
+      document.getElementById("boutonState").disabled=true;
+    }
+  }
+  xhttp.open("GET", "texte.txt");
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>

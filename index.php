@@ -5,7 +5,6 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Xavier website</title>
     <link rel='stylesheet' href='css/style_index.css'>
-    <script src='main.js'></script>
     <?php include ('core.php'); ?>
 
 </head>
@@ -53,7 +52,7 @@
                         echo $num;?><br><?php
 
                         $mysqli->close();
-                        //header('location:page.php');
+                        header('location:page.php');
                     }
                 } 
                 
@@ -64,10 +63,10 @@
             </h1>
             <form method="post">
                 <label for="idpseudo">Pseudo : </label>
-                <input type="text" name="pseudoConnection" id="idPseudoConnection" value="" placeholder="Ton pseudo" required><br><br>
+                <input type="text" autocomplete="on" name="pseudoConnection" id="idPseudoConnection" value="" placeholder="Ton pseudo" required><br><br>
 
                 <label for="idpassword">Mot de passe : </label>
-                <input type="password" name="passwordConnection" id="idPasswordConnection" placeholder="Mot de passe" value="" required><br><br>
+                <input type="password" autocomplete="off" name="passwordConnection" id="idPasswordConnection" placeholder="Mot de passe" value="" required><br><br>
                 
                 <input type="submit" name="formsendConnection" id="idFormsendConnection"><br><br>
 
