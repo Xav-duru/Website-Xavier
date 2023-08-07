@@ -9,7 +9,7 @@
     $infoBdd = ['server' => 'localhost',
                 'login' => 'root',
                 'password' => '',
-                'db_name' => 'sitewebxavier',  ];  
+                'db_name' => 'sitewebxavier'  ];  
 
      // Création d'une connexion à la base
     
@@ -20,7 +20,7 @@
      if ($mysqli->connect_errno) {      
          exit('Problème de connexion à la BDD');
      }
-     echo 'Connexion réussie';
+    // echo 'Connexion réussie';
     
     // L’appel à session_start() active la session.
     session_start();

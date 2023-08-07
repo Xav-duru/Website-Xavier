@@ -3,15 +3,15 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Xavier website</title>
-    <link rel='stylesheet' href='css/style_index.css'>
+    <title>Xavier's website</title>
+    <link rel='stylesheet' href='style_index.css'>
     <?php include ('core.php'); ?>
 
 </head>
 <body>
     <div class='title'>
         <h1>
-            Bienvenue sur le site de Xavier
+            Welcome to Xavier's website
         </h1>
     </div>
     <div class="mainbox">
@@ -52,26 +52,26 @@
                         echo $num;?><br><?php
 
                         $mysqli->close();
-                        header('location:page.php');
+                        header('location:webSite/page.php');
                     }
                 } 
                 
             }
             ?>
             <h1>
-                Connection
+                Log in
             </h1>
             <form method="post">
-                <label for="idpseudo">Pseudo : </label>
-                <input type="text" autocomplete="on" name="pseudoConnection" id="idPseudoConnection" value="" placeholder="Ton pseudo" required><br><br>
+                <label for="idpseudo">Username: </label>
+                <input type="text" autocomplete="on" name="pseudoConnection" id="idPseudoConnection" value="" placeholder="Username" required><br><br>
 
-                <label for="idpassword">Mot de passe : </label>
-                <input type="password" autocomplete="off" name="passwordConnection" id="idPasswordConnection" placeholder="Mot de passe" value="" required><br><br>
+                <label for="idpassword">Password: </label>
+                <input type="password" autocomplete="off" name="passwordConnection" id="idPasswordConnection" placeholder="Password" value="" required><br><br>
                 
-                <input type="submit" name="formsendConnection" id="idFormsendConnection"><br><br>
+                <input type="submit" name="formsendConnection" id="idFormsendConnection" value="Submit"><br><br>
 
                 <a href="motDePasseOublie.php" target="_blank">
-                    Mot de passe oublié ?
+                    Forgot your password?
                 </a>
             </form>
 
@@ -103,11 +103,11 @@
                     WHERE pseudo = '".$_POST['pseudo']."'";
 
                     $result_pseudo = $mysqli->query($sql_pseudo);   
-                    $etat = true;
+                    $state = true;
                     while ($row_pseudo = $result_pseudo->fetch_assoc()){
-                        $etat = false;
+                        $state = false;
                     }
-                    if ($etat) { 
+                    if ($state) { 
                         $pseudo  = $_POST['pseudo'];
                     }
                     else{ 
@@ -139,10 +139,10 @@
                     $nb_count = $result_count->num_rows;
 
                     //On fait +1 pour ajouter le nouvel utilisateur à la ligne suivante
-                    $nb_ajout = $nb_count+1;
+                    $nb_add = $nb_count+1;
                     
                     $sql_add = "INSERT INTO Users (idUsers, surname, name, pseudo, password, securityCode)
-                    VALUES('$nb_ajout', '$surname', '$name', '$pseudo', '$password', '$securityCode')";
+                    VALUES('$nb_add', '$surname', '$name', '$pseudo', '$password', '$securityCode')";
                     if (mysqli_query($mysqli, $sql_add)) {
                         $confirmeCreation = 'Bravo ! Ton compte a bien été créé !';
                     } 
@@ -155,48 +155,48 @@
             
             ?>
             <h1>
-                Inscription
+                Registration
             </h1>   
             <form method="post">
-                <label for="idName">Prénom : </label>
-                <input type="text" name="name" id="idName" placeholder="Prénom">
+                <label for="idName">Name: </label>
+                <input type="text" name="name" id="idName" placeholder="Name">
                 <span class="error">* <?php echo $nameErr?> </span>
                 <br><br>
 
-                <label for="idSurname">Nom : </label>
-                <input type="text" name="surname" id="idSurname" placeholder="Nom">
+                <label for="idSurname">Surname: </label>
+                <input type="text" name="surname" id="idSurname" placeholder="Surname">
                 <span class="error">* <?php echo $surnameErr?> </span>
                 <br><br>
 
-                <label for="idGender">Genre : </label>
-                <input type="radio" name="gender" value="female">Femme
-                <input type="radio" name="gender" value="male">Homme
+                <label for="idGender">Gender : </label>
+                <input type="radio" name="gender" value="female">Women
+                <input type="radio" name="gender" value="male">Men
                 <span class="error">* <?php echo $genderErr;?></span>
                 <br><br>
 
-                <label for="idpseudo">Pseudo : </label>
-                <input type="text" name="pseudo" id="idPseudo" placeholder="Pseudo">
+                <label for="idpseudo">Username: </label>
+                <input type="text" name="pseudo" id="idPseudo" placeholder="Username">
                 <span class="error">* <?php echo $pseudoErr?> </span>
                 <br><br>
 
-                <label for="idpassword">Mot de passe : </label>
-                <input type="password" name="password" id="idPassword" placeholder="Mot De Passe">
+                <label for="idpassword">Password: </label>
+                <input type="password" name="password" id="idPassword" placeholder="Password">
                 <span class="error">* <?php echo $passwordErr?> </span>
                 <br><br>
 
-                <label for="idPassword2">Rentre à nouveau ton mot de passe : </label><br>
-                <input type="password" name="password2" id="idPassword2" placeholder="Mot De Passe">
+                <label for="idPassword2">Enter your password again: </label><br>
+                <input type="password" name="password2" id="idPassword2" placeholder="Password">
                 <span class="error">* <?php echo $password2Err?> </span>
                 <br><br>
 
-                <label for="idSecurityCode">Entre de code de sécurité en cas d'oubli de mot de passe : </label><br>
-                <input type="text" name="securityCode" id="idSecurityCode" placeholder="Code De Sécurité">
+                <label for="idSecurityCode">Enter security code in case of forgotten password: </label><br>
+                <input type="text" name="securityCode" id="idSecurityCode" placeholder="Security Code">
                 <span class="error">* <?php echo $securityCodeErr?> </span>
                 <br><br>
 
-                <label for="idFormsend">Valide ton inscription :</label><br>
-                <input type="submit" name="formsend" id="idFormsendConnection">
-                <br>
+                <label for="idFormsend">Confirm your registration:</label><br>
+                <input type="submit" name="formsend" id="idFormsendConnection" value="Submit">
+                <br><br>
 
                 <?php echo $confirmeCreation?>
 

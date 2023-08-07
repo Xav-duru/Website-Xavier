@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript" src='test/test.js' defer></script>
+</head>
+
 <body>
 
 <h2>The XMLHttpRequest Object</h2>
@@ -11,21 +19,5 @@
 
 
 </div>
-
-<script>
-function loadDoc() {
-  const xhttp = new XMLHttpRequest();
-  xhttp.onload = function() {
-    if (document.getElementById("boutonState").disabled){
-      document.getElementById("boutonState").disabled = false;
-    }else{
-      document.getElementById("boutonState").disabled=true;
-    }
-  }
-  xhttp.open("GET", "texte.txt");
-  xhttp.send();
-}
-</script>
-
 </body>
 </html>

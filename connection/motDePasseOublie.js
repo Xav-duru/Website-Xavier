@@ -7,10 +7,11 @@ const btnSC = document.getElementById('idValideSC');
 function loadDoc() {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
-    if (document.getElementById("idValideSC").disabled){
-      document.getElementById("idValideSC").disabled = false;
+    if (btnSC.disabled){
+      console.log("essai");
+      btnSC.disabled = false;
     }else{
-      document.getElementById("idValideSC").disabled=true;
+      btnSC.disabled=true;
     }
   }
   xhttp.open("GET", "texte.txt");
