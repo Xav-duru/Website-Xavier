@@ -3,6 +3,7 @@ header h1{
     font-weight: bold;
     border-color: #123456;
     border-width: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 div.title{

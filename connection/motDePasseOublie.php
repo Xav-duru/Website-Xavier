@@ -42,12 +42,22 @@
             <input type="text" name="forgotUsername" id="idForgotUsername" value="" placeholder="Username" required>
             <span class="error">* <?php echo $forgotUsernameErr?> </span><br><br>
 
-            <button type="submit" name="confirmUsername" id="idConfirmForgotUsername" onclick="submitForm(event)">Submit</button><br><br>
+            <button type="submit" name="confirmUsername" id="idConfirmForgotUsername" onclick="delock()">Submit</button><br><br>
+
+            <button type="submit" name="confirmSecurityCode" id="idConfirmSC" disabled>Submit</button>
+
         </div>
     </form>
 
 
     <script>
+        function delock(){
+            let baliseImage = document.getElementById("idConfirmSC");
+            baliseImage.setAttribute("disabled", false);
+            console.log("essai")
+        }
+
+
         var myForm = document.getElementById("myForm");
         var result = document.getElementById("result");
         function submitForm(event) {
