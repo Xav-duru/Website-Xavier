@@ -14,8 +14,9 @@
     FROM Users
     WHERE pseudo = ?";
 
+    $username=$_GET['q'];
     $stmt = $mysqli->prepare($sql_forgotUsername);
-    $stmt->bind_param("s", $_GET['q']);
+    $stmt->bind_param("s", $username);
     $stmt->execute();
     $stmt->store_result();
     $stmt->fetch();
@@ -24,31 +25,22 @@
     
     if (!$nb) { 
         $forgotUsernameErr = "This username does not exist";
-
     }
     else if($nb) {
         $mysqli->close();
-        header('location:passwordForgotten2.php');
+        header("location:passwordForgotten2.php?username=". urlencode($username));
 
     }
-
     ?>
 
-    <form div="SC" method="post">
-        <label for="idUsername">Username: </label>
-        <input type="text" name="forgotUsername" id="idForgotUsername" value="" placeholder="Username" disabled>
-        <span class="error">* <?php echo $forgotUsernameErr?> </span><br><br>
+    <label for="idUsername">Username : </label>
+    <input type="text" name="forgotUsername" id="idForgotUsername" value="" placeholder="Username" required>
+    <span name="errorUsername" class="error">* <?php echo $forgotUsernameErr ?></span><br><br>
 
-        <input type="button" name="confirmUsername" id="idConfirmForgotUsername" value='Confirm username' disabled><br><br>
+    <button type="button" name="confirmUsername" id="idConfirm" onclick="getUsername(forgotUsername.value)" required>confirm username</button><br><br>
 
-        <label for="idSecurityCode">Security Code: </label>
-        <input type="text" name="securityCode" id="idSC" placeholder="Security Code" required>
-        <span class="error"> <?php $securityCodeErr?> </span> <br><br>
 
-        <button type="submit" name="confirmSecurityCode" id="idConfirmSC" onclick=getSC(securityCode.value)>Submit</button>
 
-        <button type="submit" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
-    </form>
 </body>
 </html>
 

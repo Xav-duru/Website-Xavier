@@ -7,41 +7,33 @@
     <?php include ('core.php'); ?>
 </head>
 <body>
-    <?php
-    $forgotUsernameErr = $securityCodeErr = "";
-    
-    $sql_forgotUsername = "SELECT pseudo
+<?php
+    $securityCodeErr = $forgotUsernameErr = "";
+
+    $username = urldecode($_GET['username']);
+
+    $sql_SC = "SELECT securityCode
     FROM Users
-    WHERE pseudo = ?";
+    WHERE pseudo = '".$username."'";
 
-    $stmt = $mysqli->prepare($sql_forgotUsername);
-    $stmt->bind_param("s", $_GET['q']);
-    $stmt->execute();
-    $stmt->store_result();
-    $stmt->fetch();
+    $stmt2 = $mysqli->prepare($sql_SC);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->fetch();
 
-    $nb = $stmt->num_rows;  
+    $nb2 = $stmt2->num_rows;  
+    echo $nb2;
     
-    if (!$nb) { 
-        $forgotUsernameErr = "This username does not exist";
+    if (!$nb2) { 
+        $securityCodeErr = "The security code is not exact";
 
     }
-    else if($nb) {
+    else if($nb2) {
         $mysqli->close();
-        header('location:passwordForgotten2.php');
-
+        $securityCodeErr = "cool";
+        //header("location:passwordForgotten3.php");
     }
-
     ?>
-
-<form method="post">
-        <label for="idUsername">Username: </label>
-        <input type="text" name="forgotUsername" id="idForgotUsername" value="" placeholder="Username">
-        <span class="error">* <?php echo $forgotUsernameErr?> </span><br><br>
-
-        <button type="button" name="confirmUsername" id="idConfirmForgotUsername" onclick="getUsername(forgotUsername.value)" required>confirm username</button><br><br>
-
-    </form>
 </body>
 </html>
 
