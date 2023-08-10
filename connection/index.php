@@ -70,7 +70,7 @@
                 
                 <input type="submit" name="formsendConnection" id="idFormsendConnection" value="Submit"><br><br>
 
-                <a href="motDePasseOublie.php" target="_blank">
+                <a href="passwordForgotten.php" target="_blank">
                     Forgot your password?
                 </a>
             </form>
@@ -168,7 +168,7 @@
                 <span class="error">* <?php echo $surnameErr?> </span>
                 <br><br>
 
-                <label for="idGender">Gender : </label>
+                <label for="idGender">Gender: </label>
                 <input type="radio" name="gender" value="female">Women
                 <input type="radio" name="gender" value="male">Men
                 <span class="error">* <?php echo $genderErr;?></span>

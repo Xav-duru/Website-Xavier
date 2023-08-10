@@ -24,17 +24,17 @@ div.connection {
     margin-right: 20px;
     margin-left: 190px;
     text-align: center;
-    background-color: #9e4bb9;
+    background-color: #123456;
     padding: 10px;
     border-style: solid;
-    border-color: #123456;
+    border-color: #d7be69;
     border-width: 5px;
     border-radius: 20px;
-    color:#e4d832;
+    color:#d7be69;
 }
 
 div.connection a{
-    color:#e4d832; 
+    color:#d7be69; 
 }
 
 
@@ -46,7 +46,7 @@ div.connection a{
 div.creation {
     flex :inline-block;
     padding: 10px;
-    background-color: #e4d832;
+    background-color: #d7be69;
     width: 500px;
     text-align: center;
     padding: 10px;
@@ -54,7 +54,7 @@ div.creation {
     border-color: #123456;
     border-width: 5px;
     border-radius: 20px;
-    color:#9e4bb9;
+    color:#123456;
 
 }
 
