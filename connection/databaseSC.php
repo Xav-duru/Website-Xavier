@@ -34,6 +34,13 @@
         //header("location:passwordForgotten3.php");
     }
     ?>
+
+    <label for="idSecurityCode">Security Code: </label>
+    <input type="text" name="securityCode" id="idSC" value="" placeholder="Security Code">
+    <span class="error">* <?php $securityCodeErr?> </span> <br><br>
+
+
+    <button type="submit" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
 </body>
 </html>
 

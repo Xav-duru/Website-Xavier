@@ -43,6 +43,24 @@
         xhttp.open("GET", "databaseUsername.php?q="+str);
         xhttp.send();
     }
+
+    function getSC(sc){
+        console.log(sc);
+        if (sc == "") {        
+            console.log(sc);
+            return;
+        }
+
+        console.log(sc);
+        const requestSC = new XMLHttpRequest();
+        requestSC.onload = function() {
+            console.log(sc);
+            document.getElementById("SC").innerHTML = this.responseText;
+        }
+
+        requestSC.open("GET", "databaseSC.php");
+        requestSC.send();
+    }
     </script>
    
 </body>

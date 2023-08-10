@@ -11,6 +11,7 @@
     $securityCodeErr = $forgotUsernameErr = "";
 
     $username = urldecode($_GET['username']);
+    echo "coucou";
 
     ?>
 
@@ -24,7 +25,7 @@
             <input type="text" name="securityCode" id="idSC" value="" placeholder="Security Code">
             <span class="error">* <?php $securityCodeErr?> </span> <br><br>
 
-            <button type="button" name="confirmSecurityCode" id="idConfirmSC" onclick=getSC(securityCode.value)>Submit</button>
+            <button type="button" name="confirmSC" id="idConfirmSC" >Submit</button>
 
             <button type="submit" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
 
@@ -33,25 +34,24 @@
 
 
     <script>
-    
-  
+        console.log('essai');
 
-    function getSC(SC){
-        console.log(SC);
-        if (SC == "") {        
-            console.log(SC);
+    function getSC(sc){
+        console.log(sc);
+        if (sc == "") {        
+            console.log(sc);
             return;
         }
 
-        console.log(SC);
-        const xhttp = new XMLHttpRequest();
-        xhttp.onload = function() {
-            console.log(SC);
+        console.log(sc);
+        const requestSC = new XMLHttpRequest();
+        requestSC.onload = function() {
+            console.log(sc);
             document.getElementById("SC").innerHTML = this.responseText;
         }
 
-        xhttp.open("GET", "databaseSC.php");
-        xhttp.send();
+        requestSC.open("GET", "databaseSC.php");
+        requestSC.send();
     }
 
     function cancel(){
