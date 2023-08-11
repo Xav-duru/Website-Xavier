@@ -10,9 +10,9 @@
     <?php
     $forgotUsernameErr = $securityCodeErr = "";
     
-    $sql_forgotUsername = "SELECT pseudo
+    $sql_forgotUsername = "SELECT username
     FROM Users
-    WHERE pseudo = ?";
+    WHERE username = ?";
 
     $username=$_GET['q'];
     $stmt = $mysqli->prepare($sql_forgotUsername);
@@ -31,12 +31,15 @@
         <span name="errorUsername" class="error">* <?php echo $forgotUsernameErr ?></span><br><br>
 
         <button type="button" name="confirmUsername" id="idConfirm" onclick="getUsername(forgotUsername.value)" required>confirm username</button><br><br>
+        
+        <button type="button" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
+
         <?php
     }
     else if($nb) {
         ?>
         <label for="idUsername">Username: </label>
-        <input type="text" name="forgotUsername" id="idForgotUsername" placeholder=<?php echo $username ?> disabled=false>
+        <input type="text" name="forgotUsername" id="idForgotUsername" value="<?php echo $username ?>" placeholder=<?php echo $username ?> disabled=false>
         <span class="error">* <?php echo $forgotUsernameErr?> </span><br><br>
 
         <label for="idSecurityCode">Security Code: </label>
@@ -45,7 +48,7 @@
 
         <button type="button" name="confirmSC" id="idConfirmSC" onclick="getSC(securityCode.value)">Submit</button>
 
-        <button type="submit" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
+        <button type="button" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
         <?php
 
     }

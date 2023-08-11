@@ -29,7 +29,7 @@
                     
                     $sql = "SELECT idUsers
                     FROM Users
-                    WHERE pseudo = '".$pseudo_escaped."'
+                    WHERE username = '".$pseudo_escaped."'
                     AND password = '".$password_escaped."'";
 
                     $result = $mysqli->query($sql);
@@ -98,9 +98,9 @@
                     /**
                      * On cherche à vérifier que le pseudo n'est pas déja utilisé
                      */
-                    $sql_pseudo = "SELECT pseudo
+                    $sql_pseudo = "SELECT username
                     FROM Users 
-                    WHERE pseudo = '".$_POST['pseudo']."'";
+                    WHERE username = '".$_POST['pseudo']."'";
 
                     $result_pseudo = $mysqli->query($sql_pseudo);   
                     $state = true;
@@ -141,7 +141,7 @@
                     //On fait +1 pour ajouter le nouvel utilisateur à la ligne suivante
                     $nb_add = $nb_count+1;
                     
-                    $sql_add = "INSERT INTO Users (idUsers, surname, name, pseudo, password, securityCode)
+                    $sql_add = "INSERT INTO Users (idUsers, surname, name, username, password, securityCode)
                     VALUES('$nb_add', '$surname', '$name', '$pseudo', '$password', '$securityCode')";
                     if (mysqli_query($mysqli, $sql_add)) {
                         $confirmeCreation = 'Bravo ! Ton compte a bien été créé !';

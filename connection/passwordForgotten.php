@@ -21,7 +21,13 @@
                 <input type="text" name="forgotUsername" id="idForgotUsername" value="" placeholder="Username" required>
                 <span name="errorUsername" class="error">* <?php echo $forgotUsernameErr ?></span><br><br>
 
-                <button type="button" name="confirmUsername" id="idConfirm" onclick="getUsername(forgotUsername.value)" required>confirm username</button><br><br>
+                <button type="button" name="confirmUsername" id="idConfirm" onclick="getUsername(forgotUsername.value)" required>confirm username</button>
+
+                <button type="button" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
+
+                <label for="idSecurityCode">Security Code: </label>
+                <input type="text" name="securityCode" id="idSC" value="" placeholder="Security Code" disabled>
+                <span class="error">* <?php $securityCodeErr?> </span> <br><br>
             </div>
         </form>
     </div>
@@ -45,7 +51,6 @@
     }
 
     function getSC(sc){
-        console.log(sc);
         if (sc == "") {        
             console.log(sc);
             return;
@@ -55,12 +60,17 @@
         const requestSC = new XMLHttpRequest();
         requestSC.onload = function() {
             console.log(sc);
-            document.getElementById("SC").innerHTML = this.responseText;
+            document.getElementById("username").innerHTML = this.responseText;
         }
-
-        requestSC.open("GET", "databaseSC.php");
+        var username = document.getElementById("idForgotUsername").value;
+        requestSC.open("GET", "databaseSC.php?u="+username+"&sc="+sc);
         requestSC.send();
     }
+
+    function cancel() {
+        window.history.back();
+    }
+
     </script>
    
 </body>
