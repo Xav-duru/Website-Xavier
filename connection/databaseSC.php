@@ -10,36 +10,29 @@
 <?php
     $securityCodeErr = $forgotUsernameErr = $newPasswordErr = "";
 
+    /*
     $sql_SC = "SELECT securityCode
     FROM Users
     WHERE username = ?";
+    */
 
     $sCode=$_GET['sc'];
-    echo $sCode;
+    //echo $sCode;
 
     $username=$_GET['u'];
-    echo $username;
+    //echo $username;
 
-    $stmt2 = $mysqli->prepare($sql_SC);
-    $stmt2->bind_param("s", $username);
-    $stmt2->execute();
+    $sql_SC = "SELECT securityCode
+    FROM Users
+    WHERE username = '".$username."'";
 
-    foreach ($stmt2 as $row) {
-        print_r($row);
+    $result_SC = $mysqli->query($sql_SC);
+    $row_SC = $result_SC->fetch_assoc();
+    $num_SC = $row_SC['securityCode'];
 
-/*
-    $result = $stmt2->get_result();
-    $row = $result->fetch_all(MYSQLI_ASSOC);
-    */
-    
-    $numSC = $row['securityCode'];
+    //echo $num_SC;
 
-    echo $numSC;
-
-    //$nb2 = $stmt2->num_rows;  
-    //echo $nb2;
-
-    if ($numSC != $sCode) { 
+    if ($num_SC != $sCode) { 
         $securityCodeErr = "The security code does not exist";
         ?>
         <label for="idUsername">Username: </label>
@@ -48,14 +41,14 @@
 
         <label for="idSecurityCode">Security Code: </label>
         <input type="text" name="securityCode" id="idSC" value="" placeholder="Security Code">
-        <span class="error">* <?php $securityCodeErr?> </span> <br><br>
+        <span class="error">* <?php echo $securityCodeErr?> </span> <br><br>
 
-        <button type="button" name="confirmSC" id="idConfirmSC" onclick="getSC(securityCode.value)">Submit</button>
+        <button type="button" name="confirmSC" id="idConfirmSC" onclick="getSC(securityCode.value)">Confirm security code</button>
 
         <button type="submit" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
         <?php
     }
-    else if($numSC == $sCode) {
+    else if($num_SC == $sCode) {
         ?>
         <label for="idUsername">Username: </label>
         <input type="text" name="forgotUsername" id="idForgotUsername" value="<?php echo $username ?>" placeholder=<?php echo $username ?> disabled=false>
@@ -72,12 +65,12 @@
         <input type="password" name="confirmNewPassword" id="idConfirmNewPassword" value="" placeholder='Confirm new password'>
         <span class="error">* <?php $newPasswordErr?> </span> <br><br>
 
-        <button type="button" name="confirmSC" id="idConfirmSC" onclick="getSC(securityCode.value)">Submit</button>
+        <button type="button" name="confirmSC" id="idConfirmSC" onclick="getSC(securityCode.value)">Confirm password</button>
 
         <button type="submit" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
         <?php
     }
-    }
+    
     
     ?>
 </body>

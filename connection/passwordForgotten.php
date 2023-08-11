@@ -21,7 +21,7 @@
                 <input type="text" name="forgotUsername" id="idForgotUsername" value="" placeholder="Username" required>
                 <span name="errorUsername" class="error">* <?php echo $forgotUsernameErr ?></span><br><br>
 
-                <button type="button" name="confirmUsername" id="idConfirm" onclick="getUsername(forgotUsername.value)" required>confirm username</button>
+                <button type="button" name="confirmUsername" id="idConfirm" onclick="getUsername(forgotUsername.value)" required>Confirm username</button>
 
                 <button type="button" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
 

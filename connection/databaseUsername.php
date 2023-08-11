@@ -30,7 +30,7 @@
         <input type="text" name="forgotUsername" id="idForgotUsername" value="" placeholder="Username" required>
         <span name="errorUsername" class="error">* <?php echo $forgotUsernameErr ?></span><br><br>
 
-        <button type="button" name="confirmUsername" id="idConfirm" onclick="getUsername(forgotUsername.value)" required>confirm username</button><br><br>
+        <button type="button" name="confirmUsername" id="idConfirm" onclick="getUsername(forgotUsername.value)" required>Confirm username</button>
         
         <button type="button" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
 
@@ -46,7 +46,7 @@
         <input type="text" name="securityCode" id="idSC" value="" placeholder="Security Code">
         <span class="error">* <?php $securityCodeErr?> </span> <br><br>
 
-        <button type="button" name="confirmSC" id="idConfirmSC" onclick="getSC(securityCode.value)">Submit</button>
+        <button type="button" name="confirmSC" id="idConfirmSC" onclick="getSC(securityCode.value)">Confirm security code</button>
 
         <button type="button" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
         <?php
