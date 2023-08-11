@@ -59,13 +59,13 @@
         <span class="error">* <?php $securityCodeErr?> </span> <br><br>
 
         <label for="idNewPassword">New password: </label>
-        <input type="newPassword" name="newPassword" id="idNewPassword" value="" placeholder='New password'><br><br>
+        <input type="password" name="newPassword" id="idNewPassword" value="" placeholder='New password'><br><br>
 
         <label for="idConfirmNewPassword">Confirm new password: </label>
         <input type="password" name="confirmNewPassword" id="idConfirmNewPassword" value="" placeholder='Confirm new password'>
         <span class="error">* <?php $newPasswordErr?> </span> <br><br>
 
-        <button type="button" name="confirmSC" id="idConfirmSC" onclick="getSC(securityCode.value)">Confirm password</button>
+        <button type="button" name="confirmPassword" id="idConfirmPassword" onclick="getPassword(newPassword.value, confirmNewPassword.value)">Confirm password</button>
 
         <button type="submit" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
         <?php

@@ -67,6 +67,23 @@
         requestSC.send();
     }
 
+    function getPassword(newP, confirmP){
+        if (newP == "" | confirmP == "") {        
+            console.log(newP);
+            console.log(confirmP);
+            return;
+        }
+
+        console.log(newP);
+        console.log(confirmP);
+        const requestPassword = new XMLHttpRequest();
+        requestPassword.onload = function() {
+            document.getElementById("username").innerHTML = this.responseText;
+        }
+        var username = document.getElementById("idForgotUsername").value;
+        requestPassword.open("GET", "databasePassword.php?u="+username+"&np="+newP+"&cnp="+confirmP);
+        requestPassword.send();
+    }
     function cancel() {
         window.history.back();
     }
