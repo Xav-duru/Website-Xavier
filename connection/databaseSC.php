@@ -22,6 +22,14 @@
     $username=$_GET['u'];
     //echo $username;
 
+    $sql_questionSC = "SELECT questionSecurityCode
+    FROM Users
+    WHERE username = '".$username."'";
+
+    $result_questionSC = $mysqli->query($sql_questionSC);
+    $row_questionSC = $result_questionSC->fetch_assoc();
+    $num_questionSC = $row_questionSC['questionSecurityCode'];
+
     $sql_SC = "SELECT securityCode
     FROM Users
     WHERE username = '".$username."'";
@@ -35,9 +43,12 @@
     if ($num_SC != $sCode) { 
         $securityCodeErr = "The security code does not exist";
         ?>
+        <br>
         <label for="idUsername">Username: </label>
         <input type="text" name="forgotUsername" id="idForgotUsername" value="<?php echo $username ?>" placeholder=<?php echo $username ?> disabled=false>
-        <span class="error">* <?php echo $forgotUsernameErr?> </span><br><br>
+        <span class="error">* <?php echo $forgotUsernameErr?> </span><br>
+
+        <p id="questionSC"> <?php echo $num_questionSC ?> </p>
 
         <label for="idSecurityCode">Security Code: </label>
         <input type="text" name="securityCode" id="idSC" value="" placeholder="Security Code">
@@ -50,6 +61,7 @@
     }
     else if($num_SC == $sCode) {
         ?>
+        <br>
         <label for="idUsername">Username: </label>
         <input type="text" name="forgotUsername" id="idForgotUsername" value="<?php echo $username ?>" placeholder=<?php echo $username ?> disabled=false>
         <span class="error">* <?php echo $forgotUsernameErr?> </span><br><br>

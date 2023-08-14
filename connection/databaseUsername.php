@@ -26,6 +26,7 @@
     if (!$nb) { 
         $forgotUsernameErr = "This username does not exist";
         ?>
+        <br>
         <label for="idUsername">Username : </label>
         <input type="text" name="forgotUsername" id="idForgotUsername" value="" placeholder="Username" required>
         <span name="errorUsername" class="error">* <?php echo $forgotUsernameErr ?></span><br><br>
@@ -37,10 +38,21 @@
         <?php
     }
     else if($nb) {
+        $sql_questionSC = "SELECT questionSecurityCode
+        FROM Users
+        WHERE username = '".$username."'";
+
+        $result_questionSC = $mysqli->query($sql_questionSC);
+        $row_questionSC = $result_questionSC->fetch_assoc();
+        $num_questionSC = $row_questionSC['questionSecurityCode'];
+
         ?>
+        <br>
         <label for="idUsername">Username: </label>
         <input type="text" name="forgotUsername" id="idForgotUsername" value="<?php echo $username ?>" placeholder=<?php echo $username ?> disabled=false>
-        <span class="error">* <?php echo $forgotUsernameErr?> </span><br><br>
+        <span class="error">* <?php echo $forgotUsernameErr?> </span><br>
+
+        <p id="questionSC"> <?php echo $num_questionSC ?> </p>
 
         <label for="idSecurityCode">Security Code: </label>
         <input type="text" name="securityCode" id="idSC" value="" placeholder="Security Code">

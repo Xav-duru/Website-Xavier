@@ -62,12 +62,16 @@
                 Log in
             </h1>
             <form method="post">
+                <div id="goldFrame">
+                <p>Log in information</p>
+
                 <label for="idpseudo">Username: </label>
                 <input type="text" autocomplete="on" name="pseudoConnection" id="idPseudoConnection" value="" placeholder="Username" required><br><br>
 
                 <label for="idpassword">Password: </label>
                 <input type="password" autocomplete="off" name="passwordConnection" id="idPasswordConnection" placeholder="Password" value="" required><br><br>
-                
+                </div>
+
                 <input type="submit" name="formsendConnection" id="idFormsendConnection" value="Submit"><br><br>
 
                 <a href="passwordForgotten.php" target="_blank">
@@ -77,10 +81,10 @@
 
         </div>
         
-        <div class="creation">
+        <div class="registration">
             <?php
-            $nameErr = $surnameErr = $genderErr = $pseudoErr = $passwordErr = $password2Err = $securityCodeErr ="";
-            $name = $surname = $gender = $pseudo = $password = $password2 = $securityCode ="";
+            $nameErr = $surnameErr = $genderErr = $pseudoErr = $passwordErr = $password2Err = $questionSecurityCodeErr = $securityCodeErr ="";
+            $name = $surname = $gender = $pseudo = $password = $password2 = $questionSecurityCode = $securityCode ="";
             $confirmeCreation = "";
 
             if(isset($_POST['formsend'])){
@@ -121,14 +125,17 @@
                 if($_POST['password2']!=$_POST['password']){ $password2Err = "passwords don't match";}
                 else{$password2  = $_POST['password2'];}
 
+                if(($_POST['questionSecurityCode'])=='optionDefaut'){ $questionSecurityCodeErr = 'Question for security code is required';}
+                else{$questionSecurityCode  = $_POST['questionSecurityCode'];}
+
                 if(empty($_POST['securityCode'])){ $securityCodeErr = 'SecurityCode is required';}
-                else{$securityCode  = $_POST['securityCode'];}
+                else{$securityCode = $_POST['securityCode'];}
 
                 /**
                  * Lorsque tous les champs ont été correctement rempli, et que le bouton Soumettre a été appuyé, on cherche à ajouter
                  * l'utilisateur dans la BDD.
                  */
-                if($nameErr =="" && $surnameErr =="" && $genderErr =="" && $pseudoErr =="" && $passwordErr =="" && $password2Err =="" && $securityCodeErr ==""){
+                if($nameErr =="" && $surnameErr =="" && $genderErr =="" && $pseudoErr =="" && $passwordErr =="" && $password2Err =="" && $questionSecurityCodeErr =="" && $securityCodeErr ==""){
                 
                     $sql_count = "SELECT idUsers
                     FROM Users";
@@ -141,8 +148,8 @@
                     //On fait +1 pour ajouter le nouvel utilisateur à la ligne suivante
                     $nb_add = $nb_count+1;
                     
-                    $sql_add = "INSERT INTO Users (idUsers, surname, name, username, password, securityCode)
-                    VALUES('$nb_add', '$surname', '$name', '$pseudo', '$password', '$securityCode')";
+                    $sql_add = "INSERT INTO Users (idUsers, surname, name, username, password, questionSecurityCode, securityCode)
+                    VALUES('$nb_add', '$surname', '$name', '$pseudo', '$password', '$questionSecurityCode', '$securityCode')";
                     if (mysqli_query($mysqli, $sql_add)) {
                         $confirmeCreation = 'Bravo ! Ton compte a bien été créé !';
                     } 
@@ -158,6 +165,10 @@
                 Registration
             </h1>   
             <form method="post">
+
+                <div id="blueFrame">
+                <p>Personal information</p>
+
                 <label for="idName">Name: </label>
                 <input type="text" name="name" id="idName" placeholder="Name">
                 <span class="error">* <?php echo $nameErr?> </span>
@@ -178,23 +189,47 @@
                 <input type="text" name="pseudo" id="idPseudo" placeholder="Username">
                 <span class="error">* <?php echo $pseudoErr?> </span>
                 <br><br>
+                </div>
 
+                
+
+                <div id="blueFrame">
+                <p>Password</p>
                 <label for="idpassword">Password: </label>
                 <input type="password" name="password" id="idPassword" placeholder="Password">
                 <span class="error">* <?php echo $passwordErr?> </span>
                 <br><br>
 
-                <label for="idPassword2">Enter your password again: </label><br>
+                <label for="idPassword2">Enter your password again: </label>
                 <input type="password" name="password2" id="idPassword2" placeholder="Password">
                 <span class="error">* <?php echo $password2Err?> </span>
                 <br><br>
+                </div>
 
-                <label for="idSecurityCode">Enter security code in case of forgotten password: </label><br>
+            
+
+                <div id="blueFrame">
+                <p>Security code in case of forgotten password</p>
+
+                <label for="questionSecurityCode">Select a question: </label>
+                <select id="idQuestionSecurityCode" name="questionSecurityCode">
+                    <option value="optionDefaut">Select a question</option>
+                    <option value="What is your best friend's birthday?">What is your best friend's birthday?</option>
+                    <option value="What is your favorite animal?">What is your favorite animal?</option>
+                    <option value="What is your first car?">What is your first car?</option>
+                    <option value="What is your mother's favourite song?">What is your mother's favourite song?</option>
+                    <option value="Who is your favorite athlete">Who is your favorite athlete</option>
+                </select> 
+                <span class="error">* <?php echo $questionSecurityCodeErr ?> </span>
+                <br><br>
+
+
+                <label for="idSecurityCode">Answer: </label>
                 <input type="text" name="securityCode" id="idSecurityCode" placeholder="Security Code">
                 <span class="error">* <?php echo $securityCodeErr?> </span>
                 <br><br>
+                </div>
 
-                <label for="idFormsend">Confirm your registration:</label><br>
                 <input type="submit" name="formsend" id="idFormsendConnection" value="Submit">
                 <br><br>
 

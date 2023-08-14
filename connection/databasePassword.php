@@ -29,10 +29,12 @@
         $mysqli->query($sql_newPassword);
 
         ?>
-        <p> The password has been successfully changed ! </p>
-        <a href="index.php" target="_blank">
+        <p id="questionSC"> The password has been successfully changed ! </p>
+        <a href="index.php" id="linkHomePage">
             Return to home page
         </a>
+        <br/><br/><br/>
+
 
         <?php
     }
@@ -40,12 +42,13 @@
     else{
         $newPasswordErr="Passwords do not match"
         ?>
+        <br>
         <label for="idUsername">Username: </label>
         <input type="text" name="forgotUsername" id="idForgotUsername" value="<?php echo $username ?>" placeholder=<?php echo $username ?> disabled=false>
         <span class="error">* <?php echo $forgotUsernameErr?> </span><br><br>
 
         <label for="idSecurityCode">Security Code: </label>
-        <input type="text" name="securityCode" id="idSC" value="" placeholder=<?php echo $sCode ?> disabled=false>
+        <input type="text" name="securityCode" id="idSC" value="" disabled=false>
         <span class="error">* <?php $securityCodeErr?> </span> <br><br>
 
         <label for="idNewPassword">New password: </label>

@@ -11,10 +11,13 @@
     <?php
     $forgotUsernameErr = $securityCodeErr = "";
     ?>
-
-    <div class="passwordForgotten">
+    <div class="title">
         <h1>Password forgotten ?</h1>
         <h2>Let's change it !</h2>
+    </div>
+
+    <div class="passwordForgotten">
+        <br>
         <form id="myForm" method="post">
             <div id="username">
                 <label for="idUsername">Username: </label>
