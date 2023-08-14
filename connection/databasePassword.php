@@ -60,7 +60,7 @@
 
         <button type="button" name="confirmPassword" id="idConfirmPassword" onclick="getPassword(newPassword.value, confirmNewPassword.value)">Confirm password</button>
 
-        <button type="submit" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
+        <button type="submit" name="cancel" id="idCancel">Cancel</button><br><br>
         <?php
     }
     

@@ -56,7 +56,7 @@
 
         <button type="button" name="confirmSC" id="idConfirmSC" onclick="getSC(securityCode.value)">Confirm security code</button>
 
-        <button type="submit" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
+        <button type="submit" name="cancel" id="idCancel">Cancel</button><br><br>
         <?php
     }
     else if($num_SC == $sCode) {
@@ -79,7 +79,7 @@
 
         <button type="button" name="confirmPassword" id="idConfirmPassword" onclick="getPassword(newPassword.value, confirmNewPassword.value)">Confirm password</button>
 
-        <button type="submit" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
+        <button type="submit" name="cancel" id="idCancel">Cancel</button><br><br>
         <?php
     }
     

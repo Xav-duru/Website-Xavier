@@ -180,7 +180,7 @@
                 <br><br>
 
                 <label for="idGender">Gender: </label>
-                <input type="radio" name="gender" value="female">Women
+                <input type="radio" name="gender" value="female" checked>Women
                 <input type="radio" name="gender" value="male">Men
                 <span class="error">* <?php echo $genderErr;?></span>
                 <br><br>
@@ -216,9 +216,11 @@
                     <option value="optionDefaut">Select a question</option>
                     <option value="What is your best friend's birthday?">What is your best friend's birthday?</option>
                     <option value="What is your favorite animal?">What is your favorite animal?</option>
+                    <option value="Who is your favorite athlete">Who is your favorite athlete</option>
                     <option value="What is your first car?">What is your first car?</option>
                     <option value="What is your mother's favourite song?">What is your mother's favourite song?</option>
-                    <option value="Who is your favorite athlete">Who is your favorite athlete</option>
+                    <option value="Who is your favorite person">Who is your favorite person</option>
+
                 </select> 
                 <span class="error">* <?php echo $questionSecurityCodeErr ?> </span>
                 <br><br>

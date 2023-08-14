@@ -33,7 +33,7 @@
 
         <button type="button" name="confirmUsername" id="idConfirm" onclick="getUsername(forgotUsername.value)" required>Confirm username</button>
         
-        <button type="button" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
+        <button type="submit" name="cancel" id="idCancel">Cancel</button><br><br>
 
         <?php
     }
@@ -60,7 +60,7 @@
 
         <button type="button" name="confirmSC" id="idConfirmSC" onclick="getSC(securityCode.value)">Confirm security code</button>
 
-        <button type="button" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
+        <button type="submit" name="cancel" id="idCancel">Cancel</button><br><br>
         <?php
 
     }

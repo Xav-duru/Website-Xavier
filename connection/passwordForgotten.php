@@ -26,7 +26,7 @@
 
                 <button type="button" name="confirmUsername" id="idConfirm" onclick="getUsername(forgotUsername.value)" required>Confirm username</button>
 
-                <button type="button" name="cancel" id="idCancel" onclick="cancel()">Cancel</button><br><br>
+                <button type="submit" name="cancel" id="idCancel">Cancel</button><br><br>
 
                 <label for="idSecurityCode">Security Code: </label>
                 <input type="text" name="securityCode" id="idSC" value="" placeholder="Security Code" disabled>
@@ -86,9 +86,6 @@
         var username = document.getElementById("idForgotUsername").value;
         requestPassword.open("GET", "databasePassword.php?u="+username+"&np="+newP+"&cnp="+confirmP);
         requestPassword.send();
-    }
-    function cancel() {
-        window.history.back();
     }
 
     </script>
