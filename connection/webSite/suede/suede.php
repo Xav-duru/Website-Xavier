@@ -26,6 +26,9 @@
                 <a href="https://reseaueseo-my.sharepoint.com/:x:/g/personal/xavier_detrolongdurumain_reseau_eseo_fr/ERwdv8sbWdRBuJOf5J0yj0sBpCOTgOCvK-yokZSd5iOU2w?e=PPsCiz" target="_blank">
                     Calendrier
                 </a>
+                <a href="crew.php">
+                    The team
+                </a>
             </li>
         </ul>
     </nav>

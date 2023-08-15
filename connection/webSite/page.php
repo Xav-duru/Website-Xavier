@@ -36,7 +36,7 @@
                 </a>
             </li>
             <li class="btn">
-                <a href="suede.html" target="_">
+                <a href="suede/suede.php" target="_">
                     Suède
                 </a>
             </li>

@@ -1,0 +1,99 @@
+body{
+  background: url("01.jpg") no-repeat;
+  background-size: 120%;
+}
+
+#center{
+  font-weight: bold;
+  position: fixed;
+  top: 330px;
+  left: 570px;
+  text-align: center;
+  color:#e6dcbb;
+  padding: 10px;
+  border-style: solid;
+  border-color: #e6dcbb;
+  border-width: 5px;
+  border-radius: 20px;
+  color:#e6dcbb;
+}
+
+a {
+  color: #e6dcbb;
+}
+
+#images {
+  width: 230px;
+  height: 230px;
+  position: relative;
+}
+
+img {
+    display: inline-block;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+    border-radius: 70%;
+  }
+
+
+label {
+  margin-left: 45px;
+  font-size: 20px;
+  color: #e6dcbb;
+}
+
+span{
+  font-weight: bold;
+  font-size: 20px;
+
+}
+
+#Corentin{
+  position: fixed;
+  top: 120px;
+  left: 50px;
+}
+
+#Eugenie{
+  position: fixed;
+  top: 30px;
+  left:420px;
+}
+
+#Jeremy{
+  position: fixed;
+  top: 30px;
+  right: 420px;
+}
+
+#Julien{
+  position: fixed;
+  top: 120px;
+  right: 50px;
+}
+
+#Paul{
+  position: fixed;
+  top: 500px;
+  left: 400px;
+  
+}
+
+#Yasmine{
+  position: fixed;
+  bottom: 120px;
+  left: 50px;
+}
+
+#Mael{
+  position: fixed;
+  top: 500px;
+  right: 400px;
+}
+
+#Salome{
+  position: fixed;
+  top: 400px;
+  right: 50px;
+}
