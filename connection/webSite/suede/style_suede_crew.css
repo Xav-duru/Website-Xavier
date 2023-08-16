@@ -22,19 +22,17 @@ a {
   color: #e6dcbb;
 }
 
-#images {
-  width: 230px;
-  height: 230px;
-  position: relative;
-}
+
 
 img {
     display: inline-block;
     margin: 0 auto;
-    height: 100%;
-    width: auto;
+    width: 230px;
+    height: 230px;
     border-radius: 70%;
   }
+
+ 
 
 
 label {
