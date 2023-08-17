@@ -17,6 +17,12 @@ div.gallery {
     width: 100%;
     height: auto;
   }
+
+  #download {
+    text-align: center;
+    color: black;
+    padding: 38%;
+  }
   
   div.desc {
     padding: 15px;
