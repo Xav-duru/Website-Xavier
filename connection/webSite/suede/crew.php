@@ -7,7 +7,6 @@
     <title>Crew Suède</title>
 </head>
 <body>
-
     <div id="Corentin">
         <div class="containerCorentin">
             <img src="photos_centrees/Corentin.jpeg" id="imageCorentin" name="Coco"><br>
@@ -80,19 +79,24 @@
 
     <div id="center">
         <h1 id="title">Les français en Suède</h1>
-        <a href="photos_groupe.html" target="_blank">
-            Photos groupes
+        <a href="photos_groupe.php" target="_blank">
+            Photos groupe
         </a>
     </div>
 
 
     <script>
 
+        /**
+         * Fonction lorsque la souris est sur la photo de Corentin
+         */
         const imageCorentin = document.getElementById('imageCorentin');
         const instaCorentin = document.getElementById('instaCorentin');
-
         let stateCorentin = false;
 
+        /**
+         * Event lorsque la souris se trouve sur l'image (hors du texte "insta")
+         */
         imageCorentin.addEventListener('mouseenter', () => {
             if (!stateCorentin) {
                 stateCorentin = true;
@@ -102,6 +106,9 @@
              }
         });
 
+        /**
+         * Event lorsque la souris se trouve hors de l'image (potentiellement sur le texte "insta")
+         */
         imageCorentin.addEventListener('mouseleave', () => {
             if (stateCorentin) {
                 stateCorentin = false;
@@ -111,6 +118,9 @@
             }
         });
 
+        /**
+         * Event lorsque la souris se trouve sur le texte "insta"
+         */
         instaCorentin.addEventListener('mouseenter', () => {
             if (!stateCorentin) {
                 stateCorentin = true;
@@ -118,20 +128,12 @@
                 instaCorentin.style.display = 'block';
              }
         });
-
-        instaCorentin.addEventListener('mouseleave', () => {
-            if (stateCorentin) {
-                stateCorentin = false;
-                console.log("sorti");
-                imageCorentin.style.filter = 'none';
-                instaCorentin.style.display = 'none';
-            }
-        }); 
         
-        
+        /**
+         * Fonction lorsque la souris est sur la photo de Eugénie
+         */
         const imageEugenie = document.getElementById('imageEugenie');
         const instaEugenie = document.getElementById('instaEugenie');
-
         let stateEugenie = false;
 
         imageEugenie.addEventListener('mouseenter', () => {
@@ -160,18 +162,12 @@
              }
         });
 
-        instaEugenie.addEventListener('mouseleave', () => {
-            if (stateEugenie) {
-                stateEugenie = false;
-                console.log("sorti");
-                imageEugenie.style.filter = 'none';
-                instaEugenie.style.display = 'none';
-            }
-        }); 
-
+    
+        /**
+         * Fonction lorsque la souris est sur la photo de jeremy
+         */
         const imageJeremy = document.getElementById('imageJeremy');
         const instaJeremy = document.getElementById('instaJeremy');
-
         let stateJeremy = false;
 
         imageJeremy.addEventListener('mouseenter', () => {
@@ -200,18 +196,12 @@
              }
         });
 
-        instaJeremy.addEventListener('mouseleave', () => {
-            if (stateJeremy) {
-                stateJeremy = false;
-                console.log("sorti");
-                imageJeremy.style.filter = 'none';
-                instaJeremy.style.display = 'none';
-            }
-        }); 
 
+        /**
+         * Fonction lorsque la souris est sur la photo de Julien
+         */
         const imageJulien = document.getElementById('imageJulien');
         const instaJulien = document.getElementById('instaJulien');
-
         let stateJulien = false;
 
         imageJulien.addEventListener('mouseenter', () => {
@@ -240,18 +230,12 @@
              }
         });
 
-        instaJulien.addEventListener('mouseleave', () => {
-            if (stateJulien) {
-                stateJulien = false;
-                console.log("sorti");
-                imageJulien.style.filter = 'none';
-                instaJulien.style.display = 'none';
-            }
-        }); 
 
+        /**
+         * Fonction lorsque la souris est sur la photo de Yasmine
+         */
         const imageYasmine = document.getElementById('imageYasmine');
         const instaYasmine = document.getElementById('instaYasmine');
-
         let stateYasmine = false;
 
         imageYasmine.addEventListener('mouseenter', () => {
@@ -280,18 +264,12 @@
              }
         });
 
-        instaYasmine.addEventListener('mouseleave', () => {
-            if (stateYasmine) {
-                stateYasmine = false;
-                console.log("sorti");
-                imageYasmine.style.filter = 'none';
-                instaYasmine.style.display = 'none';
-            }
-        }); 
 
+        /**
+         * Fonction lorsque la souris est sur la photo de paul
+         */
         const imagePaul = document.getElementById('imagePaul');
         const instaPaul = document.getElementById('instaPaul');
-
         let statePaul = false;
 
         imagePaul.addEventListener('mouseenter', () => {
@@ -320,18 +298,12 @@
              }
         });
 
-        instaPaul.addEventListener('mouseleave', () => {
-            if (statePaul) {
-                statePaul = false;
-                console.log("sorti");
-                imagePaul.style.filter = 'none';
-                instaPaul.style.display = 'none';
-            }
-        }); 
 
+        /**
+         * Fonction lorsque la souris est sur la photo de Mael
+         */
         const imageMael = document.getElementById('imageMael');
         const instaMael = document.getElementById('instaMael');
-
         let stateMael = false;
 
         imageMael.addEventListener('mouseenter', () => {
@@ -360,18 +332,12 @@
              }
         });
 
-        instaMael.addEventListener('mouseleave', () => {
-            if (stateMael) {
-                stateMael = false;
-                console.log("sorti");
-                imageMael.style.filter = 'none';
-                instaMael.style.display = 'none';
-            }
-        }); 
 
+        /**
+         * Fonction lorsque la souris est sur la photo de Salome
+         */
         const imageSalome = document.getElementById('imageSalome');
         const instaSalome = document.getElementById('instaSalome');
-
         let stateSalome = false;
 
         imageSalome.addEventListener('mouseenter', () => {
@@ -399,18 +365,7 @@
                 instaSalome.style.display = 'block';
              }
         });
-
-        instaSalome.addEventListener('mouseleave', () => {
-            if (stateSalome) {
-                stateSalome = false;
-                console.log("sorti");
-                imageSalome.style.filter = 'none';
-                instaSalome.style.display = 'none';
-            }
-        }); 
-        
     </script>
-
 
 </body>
 </html> 

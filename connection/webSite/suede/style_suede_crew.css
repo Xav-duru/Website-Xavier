@@ -34,7 +34,6 @@ img {
 
 
 label {
-  margin-left: 45px;
   font-size: 20px;
   color: #e6dcbb;
 }
@@ -126,7 +125,7 @@ span{
 
 #Salome{
   position: fixed;
-  top: 400px;
+  bottom: 120px;
   right: 50px;
 }
 .containerSalome {
