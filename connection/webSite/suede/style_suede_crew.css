@@ -30,15 +30,26 @@ img {
     width: 230px;
     height: 230px;
     border-radius: 70%;
-  }
-
- 
+}
 
 
 label {
   margin-left: 45px;
   font-size: 20px;
   color: #e6dcbb;
+}
+
+#insta{
+  position: absolute;
+  top: 42%;
+  font-size: 20px;
+  font-weight: bold;
+  color:#123456;
+  border-style: solid;
+  border-color: #123456;
+  border-width: 5px;
+  padding:5px;
+  background-color: #e6dcbb;
 }
 
 span{
@@ -48,10 +59,15 @@ span{
 }
 
 #Corentin{
-  position: fixed;
+  position: relative;
   top: 120px;
   left: 50px;
 }
+
+.containerCorentin {
+  position: relative;
+}
+
 
 #Eugenie{
   position: fixed;
@@ -95,3 +111,4 @@ span{
   top: 400px;
   right: 50px;
 }
+

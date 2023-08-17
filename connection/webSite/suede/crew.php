@@ -9,21 +9,18 @@
 <body>
 
     <div id="Corentin">
-        <div id="messageCorentin" style="display: none;">
-            <p>Mon secret est Ferlaux</p>
+        <div class="containerCorentin">
+            <img src="photos_centrees/Corentin.jpeg" id="imageCorentin" name="Coco"><br>
+            <div id="insta" name="instaCorentin" style="display: none; left:60px;">insta: _cgrst</div>
         </div>
-        <div id="imageCorentin">
-            <img src="photos_centrees/Corentin.jpeg" name="Coco"><br>
-        <div>
-        <div  id="bouttonCorentin" display: none>
-            <button style="display: none;">Insta</button>
-        </div>
-
         <label for="Coco">Corentin - Alias "<span>Coco</span>"</label>
     </div>
 
     <div id="Eugenie">
-        <img src="photos_centrees/Eugenie.jpeg" id="eugenie" name="Eugenie"><br>
+        <div class="containerEugenie">
+            <img src="photos_centrees/Eugenie.jpeg" id="imageEugenie" name="Eugenie"><br>
+            <div id="insta" name="instaEugenie" style="display: none; left:10px;">insta: eugenie.rocheron</div>
+        </div>
         <label for="Eugenie">Eugénie - Alias "<span>Mamie</span>"</label>
     </div>
 
@@ -74,37 +71,86 @@
     <script>
 
         const imageCorentin = document.getElementById('imageCorentin');
-        const messageCorentin = document.getElementById('messageCorentin');
-        const bouttonCorentin = document.getElementById('bouttonCorentin');
+        const instaCorentin = document.getElementsByName('instaCorentin');
 
-        let isHovered = false;
+        let stateCorentin = false;
 
         imageCorentin.addEventListener('mouseenter', () => {
-            if (!isHovered) {
-                isHovered = true;
+            if (!stateCorentin) {
+                stateCorentin = true;
                 imageCorentin.style.transition = 'filter 0.3s ease-in-out';
                 imageCorentin.style.filter = 'blur(5px)';
-                console.log("rentré");
-                setTimeout(() => {
-                                   
-
-                }, 300);
+                instaCorentin.style.display = 'block';
              }
-             messageCorentin.style.display = 'block';
         });
 
         imageCorentin.addEventListener('mouseleave', () => {
-            if (isHovered) {
-                isHovered = false;
+            if (stateCorentin) {
+                stateCorentin = false;
                 console.log("sorti");
-                imageCorentin.style.transition = 'filter 0.3s ease-in-out';
                 imageCorentin.style.filter = 'none';
-                messageCorentin.style.transition = 'opacity 0.3s ease-in-out';
-                messageCorentin.style.opacity = '0';
-                bouttonCorentin.style.display = 'none';
+                instaCorentin.style.display = 'none';
             }
         });
 
+        instaCorentin.addEventListener('mouseenter', () => {
+            if (!stateCorentin) {
+                stateCorentin = true;
+                imageCorentin.style.filter = 'blur(5px)';
+                instaCorentin.style.display = 'block';
+             }
+        });
+
+        instaCorentin.addEventListener('mouseleave', () => {
+            if (stateCorentin) {
+                stateCorentin = false;
+                console.log("sorti");
+                imageCorentin.style.filter = 'none';
+                instaCorentin.style.display = 'none';
+            }
+        }); 
+        
+        /*
+        const imageEugenie = document.getElementById('imageEugenie');
+        const instaEugenie = document.getElementsByName('instaEugenie');
+
+        let stateEugenie = false;
+
+        imageEugenie.addEventListener('mouseenter', () => {
+            if (!stateEugenie) {
+                stateEugenie = true;
+                imageEugenie.style.transition = 'filter 0.3s ease-in-out';
+                imageEugenie.style.filter = 'blur(5px)';
+                instaEugenie.style.display = 'block';
+             }
+        });
+
+        imageEugenie.addEventListener('mouseleave', () => {
+            if (stateEugenie) {
+                stateEugenie = false;
+                console.log("sorti");
+                imageEugenie.style.filter = 'none';
+                instaEugenie.style.display = 'none';
+            }
+        });
+
+        instaEugenie.addEventListener('mouseenter', () => {
+            if (!stateEugenie) {
+                stateEugenie = true;
+                imageEugenie.style.filter = 'blur(5px)';
+                instaEugenie.style.display = 'block';
+             }
+        });
+
+        instaEugenie.addEventListener('mouseleave', () => {
+            if (stateEugenie) {
+                stateEugenie = false;
+                console.log("sorti");
+                imageEugenie.style.filter = 'none';
+                instaEugenie.style.display = 'none';
+            }
+        }); 
+        */
     </script>
 
 

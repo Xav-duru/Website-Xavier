@@ -41,7 +41,7 @@
                 </a>
             </li>
             <li class="btn">
-                <a href="trek.html" target="_">
+                <a href="football.php" target="_">
                     football
                 </a>
             </li>
