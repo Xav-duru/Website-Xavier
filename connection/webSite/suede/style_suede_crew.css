@@ -39,10 +39,10 @@ label {
   color: #e6dcbb;
 }
 
-#insta{
+.insta{
   position: absolute;
   top: 42%;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: bold;
   color:#123456;
   border-style: solid;
@@ -63,7 +63,6 @@ span{
   top: 120px;
   left: 50px;
 }
-
 .containerCorentin {
   position: relative;
 }
@@ -74,11 +73,17 @@ span{
   top: 30px;
   left:420px;
 }
+.containerEugenie {
+  position: relative;
+}
 
 #Jeremy{
   position: fixed;
   top: 30px;
   right: 420px;
+}
+.containerJeremy {
+  position: relative;
 }
 
 #Julien{
@@ -86,18 +91,28 @@ span{
   top: 120px;
   right: 50px;
 }
+.containerJulien {
+  position: relative;
+}
+
 
 #Paul{
   position: fixed;
   top: 500px;
   left: 400px;
-  
 }
+.containerPaul {
+  position: relative;
+}
+
 
 #Yasmine{
   position: fixed;
   bottom: 120px;
   left: 50px;
+}
+.containerYasmine {
+  position: relative;
 }
 
 #Mael{
@@ -105,10 +120,16 @@ span{
   top: 500px;
   right: 400px;
 }
+.containerMael {
+  position: relative;
+}
 
 #Salome{
   position: fixed;
   top: 400px;
   right: 50px;
+}
+.containerSalome {
+  position: relative;
 }
 
