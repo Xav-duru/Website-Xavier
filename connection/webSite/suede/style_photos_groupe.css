@@ -1,13 +1,21 @@
+body{
+  background: url("Photos/backgroundPhotos.png") no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
+}
+
+
 
 div.gallery {
     margin: 5px;
     border: 1px solid #ccc;
     float: center;
     width: 20%;
-    margin-left: 550px; 
-
-    
+    margin-left: 550px;   
+    background-color: white;
+    padding: 20px;
   }
+  
   
   div.gallery:hover {
     border: 1px solid #777;

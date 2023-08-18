@@ -7,60 +7,68 @@ header h1{
     background-color: #123456;
     color: aliceblue;
     padding: 25px;
-    margin-left: 40px;
+    margin: none;
+    text-align: center;
+}
 
+div.menu-nav{
+    width: 300px;
+    height: 740px;
+    background-color: #123456;
+    border-style: solid;
+    border-color: #d7be69;
+    border-width: 5px;  
 }
 
 
-nav.menu-nav ul li.btn{
-    display: inline-block;
-    list-style-type: none;
-    margin: 0px;
-}
-
-nav.menu-nav ul li.btn a{
+div.btn a{
     text-decoration: none;
     color: white;
     background-color: #123456;
-    padding: 15px;
-
+    text-align: center;
+    font-weight: bold;
+    
 }
 
-nav.menu-nav ul li.btn:hover a{
+div.btn:hover a{
     background-color:steelblue;
 }
 
+
+img {
+    display: inline-block;
+    margin: 0 auto;
+    width: 230px;
+    height: 230px;
+    border-radius: 70%;
+}
+
+div.profil {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    background-color: #123456;
+    padding: 10px;
+    text-decoration: none;
+    margin: none;
+    border-bottom-style: solid;
+    border-bottom-color: #d7be69;
+    border-bottom-width: 5px;
+}
+
+
 body{
     background: url("https://s1.1zoom.me/b5050/494/Coast_Lighthouses_France_Stones_Waves_Sea_Bretagne_580357_3840x2400.jpg") no-repeat;
-    background-size: 95%;
+    background-size: 100%;
 }
 
-div#content div{
-    display: inline-block;
-    list-style-type: none;
-    width: 44%;
-
-}
-
-div.rightbox{
-    color: #123456;
-    border: #123456;
-
-}
-
-div.leftbox{
-    color: #123456;
-    border: #123456;
-
-}
 
 footer{
     color: white;
     background-color: #123456;
     padding: 5px;
     position: absolute;
-    bottom: 0;
-     width: 100%;
-     height: 20px; /* Hauteur du footer */
-     padding-bottom: 10px;
+    bottom: 0px;
+    width: 98%;
+    padding-bottom: 10px;
 }
