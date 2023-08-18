@@ -13,15 +13,11 @@
     <div id="videos">
 
         <div class="leftbox">
-            <h1>
-                Trek Pyrenees - Lucas x Xavier  
-            </h1>
+            <h1>Trek Pyrenees - Lucas x Xavier</h1>
 
-            <h2>
-                2021
-            </h2>
+            <h2>2021</h2>
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/kje1S_tR02A"
+            <iframe width="504" height="283" src="https://www.youtube.com/embed/kje1S_tR02A"
              title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
              encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -30,11 +26,9 @@
         <div class="rightbox">
             <h1>Trek Noirmoutier - Lucas x Xavier</h1>
 
-            <h2>
-                2022
-            </h2>
+            <h2>2022</h2>
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/aL8ylsaw83I"
+            <iframe width="504" height="283" src="https://www.youtube.com/embed/aL8ylsaw83I"
              title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
               encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 

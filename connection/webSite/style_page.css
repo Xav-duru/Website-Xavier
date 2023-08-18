@@ -18,6 +18,7 @@ div.menu-nav{
     border-style: solid;
     border-color: #d7be69;
     border-width: 5px;  
+    
 }
 
 
@@ -40,7 +41,13 @@ img {
     margin: 0 auto;
     width: 230px;
     height: 230px;
-    border-radius: 70%;
+    border-radius: 50%;
+    border-left-style: solid;
+    border-left-color: #d7be69;
+    border-left-width: 5px;
+    border-right-style: solid;
+    border-right-color: #d7be69;
+    border-right-width: 5px;  
 }
 
 div.profil {

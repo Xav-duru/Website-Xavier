@@ -36,7 +36,7 @@
         </div>
         <br><br>
         <div class="btn">
-            <a href="trek.html" style="padding: 19px 94px 19px 94px;" target="_">
+            <a href="trek.php" style="padding: 19px 94px 19px 94px;" target="_">
                 Trek adventures
             </a>
         </div>

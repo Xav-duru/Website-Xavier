@@ -1,5 +1,5 @@
 body{
-  background: url("Photo/backgroundCrew.jpg") no-repeat;
+  background: url("Photos/backgroundCrew.jpg") no-repeat;
   background-size: 120%;
 }
 
@@ -21,8 +21,6 @@ body{
 a {
   color: #e6dcbb;
 }
-
-
 
 img {
     display: inline-block;
@@ -58,7 +56,7 @@ span{
 }
 
 #Corentin{
-  position: relative;
+  position: fixed;
   top: 120px;
   left: 50px;
 }

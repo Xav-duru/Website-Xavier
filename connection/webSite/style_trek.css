@@ -1,32 +1,26 @@
+body{
+    background: url("Photo_Trek.jpg") no-repeat;
+    background-size: 100%;
+}
+
 div#videos div{
     display: inline-block;
     width: 44%;
+    
 }
 
 div#videos div.leftbox{
-    padding-left: 15px;
-}
-
-div#videos div.leftbox h1{
-    padding-left: 60px;
-    color: #123456;
-}
-
-div#videos div.leftbox h2{
-    padding-left: 250px;
-    color: #123456;
+    text-align: center;
+    color: #FFFFCD;
 }
 
 div#videos div.rightbox{
+    position: fixed;
+    right:10px;
     padding-left: 15px;
+    text-align: center;
+    color: #FFFFCD;
+
+
 }
 
-div#videos div.rightbox h1{
-    padding-left: 30px;
-    color: #123456;
-}
-
-div#videos div.rightbox h2{
-    padding-left: 250px;
-    color: #123456;
-}
