@@ -24,37 +24,37 @@
         </div>
         <br>
         <div class="btn">
-            <a href="https://www.linkedin.com/in/xavier-durumain/" style="padding: 19px 119px 19px 118px;" target="_blank">
+            <a href="https://www.linkedin.com/in/xavier-durumain/" style="padding: 19px 119px 19px 118px;">
                 Linkedin
             </a>
         </div>
         <br><br>
         <div class="btn">
-            <a href="CV.html" style="padding: 19px 122px 19px 123px;" target="_blank">
+            <a href="CV.html" style="padding: 19px 122px 19px 123px;">
                 Resume
             </a>
         </div>
         <br><br>
         <div class="btn">
-            <a href="trek.php" style="padding: 19px 94px 19px 94px;" target="_">
+            <a href="trek.php" style="padding: 19px 94px 19px 94px;">
                 Trek adventures
             </a>
         </div>
         <br><br>
         <div class="btn">
-            <a href="suede/suede.php" style="padding: 19px 123px 19px 124px;" target="_">
+            <a href="suede/suede.php" style="padding: 19px 123px 19px 124px;">
                 Sweden
             </a>
         </div>
         <br><br>
         <div class="btn">
-            <a href="football.php" style="padding: 19px 123px 19px 124px;" target="_">
+            <a href="football/football.php" style="padding: 19px 123px 19px 124px;">
                 football
             </a>
         </div>
         <br><br>
         <div class="btn">
-            <a href="trek.html" style="padding: 19px 119px 19px 118px;" target="_">
+            <a href="trek.html" style="padding: 19px 119px 19px 118px;">
                 Cyclisme
             </a>
         </div>

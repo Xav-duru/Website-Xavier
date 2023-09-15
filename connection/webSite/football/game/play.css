@@ -1,0 +1,56 @@
+/* LeftBox */
+
+
+.leftBox{
+    text-align: center;
+    position: fixed;
+    top: 25px;
+    left: 25px
+}
+
+#idStriker{
+    position: fixed;
+    top: 200px;
+    left: 350px;
+    border-radius: 70%;
+    padding: 30px;
+
+}
+
+img{
+    width: 525px;
+    height: auto;
+    border-radius: 20px;
+
+}
+
+
+/* RightBox */
+
+.rightBox{
+    position: fixed;
+    top: 50px;
+    left: 600px;
+}
+
+.rightBox.h1{
+    color:#123456;
+}
+
+#idWindowPlayer{
+    border-style: solid;
+    border-color: #123456;
+    border-width: 5px;
+    border-radius: 20px;
+    padding:15px;
+}
+
+.blockThreePlayer li{
+    text-align: center;
+    display: inline-block;
+    border-style: solid;
+    border-color: #123456;
+    border-width: 5px;
+    border-radius: 20px;
+    padding: 30px;
+}
