@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' type='text/css' media='screen' href='game.css'>
     <title>Compose ton XI</title>
-    <?php include ('../../../core.php'); ?>
 </head>
 <body>
       
     <div id="idFormGame">
         <?php
-        if(isset($_POST['submitParameters'])){
-            $sold = $_POST['sold'];
-            $league = $_POST['league'];
+
+        
+
+        if(isset($_GET['submitParameters'])){
+            $sold = $_GET['sold'];
+            $league = $_GET['league'];
             echo $sold;
-            header('Location: play.php');
+            header('Location: play.php?sold='.$sold.'&league='.$league);
         }
         ?>
     
-        <form id="parameters" method="post">
+        <form id="parameters" method="get">
             <p>Choose parameters</p>
 
             <label for="sold">Sold: </label>
@@ -39,10 +41,10 @@
 
             <label for="league">Choose your league: </label>
             <select id="idLeague" name="league">
-                <option value="Ligue1" default>Ligue 1</option>
-                <option value="PremierLeague">Premier League</option>
+                <option value="Ligue 1" default>Ligue 1</option>
+                <option value="Premier League">Premier League</option>
                 <option value="Liga">Liga</option>
-                <option value="SerieA">Serie A</option>
+                <option value="Serie A">Serie A</option>
                 <option value="Bundesliga">Bundesliga</option>
                 <option value="All">all of them</option>
             </select> 

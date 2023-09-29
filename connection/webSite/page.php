@@ -63,7 +63,7 @@
 
     <!-- footer -->
     <footer>
-        Hope you enjoyed
+        Hope you enjoyed!   
     </footer>
 </body>
 </html>

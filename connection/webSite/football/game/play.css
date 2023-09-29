@@ -17,7 +17,7 @@
 
 }
 
-img{
+#field{
     width: 525px;
     height: auto;
     border-radius: 20px;
@@ -43,6 +43,7 @@ img{
     border-width: 5px;
     border-radius: 20px;
     padding:15px;
+    
 }
 
 .blockThreePlayer li{
@@ -53,4 +54,19 @@ img{
     border-width: 5px;
     border-radius: 20px;
     padding: 30px;
+    width: 120px;
+    height: 120px;
+}
+
+.blockThreePlayer h1{
+    text-align: center;
+}
+
+#idValidPlayer{
+    padding: 5px;
+}
+
+#idPlayerPhoto{
+    width: 100px;
+    height: auto;
 }
