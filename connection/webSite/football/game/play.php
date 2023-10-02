@@ -13,12 +13,33 @@
     $sold=$_GET['sold'];
     $league=$_GET['league'];
 
-    $team1=[];
+    $team1=array();
+    function addPlayerInTeam($player){
 
+    // Return player's price
+    function getPrice($id, $mysqli) {
+        $sql_getPrice = "SELECT price
+        FROM joueurs
+        WHERE id = '".$id."'";
 
+        $result = $mysqli->query($sql_getPrice);
+        $nb = $result->num_rows;
 
+        if (!$result) { 
+            exit($mysqli->error);
+        }
+        
+        else if($nb) { 
+            $row = $result->fetch_assoc();
 
+            //Récupère le numéro de l'id de l'utilisateur
+            $num = $row['price'];
+            //echo $num;?><br><?php
+            return $num;
+        }
+    }
 
+    }
 
     ?>
 
@@ -36,7 +57,8 @@
     </div>
 
     <script>
-        // Convert variable from PHP to JavaScript
+    
+    // Convert variable from PHP to JavaScript
     function $_GET(param) {
         var vars = {};
         window.location.href.replace( location.hash, '' ).replace(/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
@@ -51,7 +73,7 @@
         return vars;
     }
 
-        // Function after a click to a post
+    // Function after a click to a post
     function choosePlayer(player){
         console.log(player);
         var league = $_GET('league');
@@ -63,6 +85,18 @@
         requestSC.open("GET", "choosePlayer.php?post="+player+"&league="+league);
         requestSC.send();
     }
+
+    function validChoice(player){
+        console.log(player);
+        var sold = $_GET($sold)
+        const requestSC = new XMLHttpRequest();
+        requestSC.onload = function() {
+            document.getElementById("idWindowPlayer").innerHTML = this.responseText;
+        }
+        requestSC.open("GET", "choosePlayer.php?post="+player+"&league="+league);
+        requestSC.send();
+    }
+    
     </script>
 </body>
 </html>

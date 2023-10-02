@@ -41,7 +41,7 @@
             }
         }
 
-        // Retourne le nom du joueur grâce à l'id
+        // Return player's name
         function getName($id, $mysqli) {
             $sql_getName = "SELECT name
             FROM joueurs
@@ -59,6 +59,29 @@
 
                 //Récupère le numéro de l'id de l'utilisateur
                 $num = $row['name'];
+                //echo $num;?><br><?php
+                return $num;
+            }
+        }
+
+        // Return player's price
+        function getPrice($id, $mysqli) {
+            $sql_getPrice = "SELECT price
+            FROM joueurs
+            WHERE id = '".$id."'";
+
+            $result = $mysqli->query($sql_getPrice);
+            $nb = $result->num_rows;
+
+            if (!$result) { 
+                exit($mysqli->error);
+            }
+            
+            else if($nb) { 
+                $row = $result->fetch_assoc();
+
+                //Récupère le numéro de l'id de l'utilisateur
+                $num = $row['price'];
                 //echo $num;?><br><?php
                 return $num;
             }
@@ -86,20 +109,22 @@
                 return $num;
             }
         }
+
         
         $post=$_GET['post'];
         $league=$_GET['league'];
 
         $player1 = getRandomPlayer($post, $league, $mysqli);
         $player1_name=getName($player1, $mysqli);
+        $player1_price=getPrice($player1, $mysqli);
         $player1_photo="photo_Players/".str_replace(" ","",$player1_name).".png";
-        echo $player1_photo;
 
         $player2 = $player1;
         while ($player2 == $player1){
             $player2 = getRandomPlayer($post, $league, $mysqli);
         }
         $player2_name=getName($player2, $mysqli);
+        $player2_price=getPrice($player2, $mysqli);
         $player2_photo=getPhoto($player2, $mysqli);
         $player2_photo="photo_Players/".str_replace(" ","",$player2_name).".png";
 
@@ -109,6 +134,7 @@
             $player3 = getRandomPlayer($post, $league, $mysqli);
         }
         $player3_name=getName($player3, $mysqli);
+        $player3_price=getPrice($player3, $mysqli);
         $player3_photo=getPhoto($player3, $mysqli);
         $player3_photo="photo_Players/".str_replace(" ","",$player3_name).".png";
 
@@ -133,19 +159,22 @@
         <h1>Choose your <?php echo $post ?> !</h1>
         <li>
         <img id="idPlayerPhoto" src=<?php echo $player1_photo ?>>
-        <p> <?php echo $player1_name ?></p>
+        <p> <?php echo $player1_name ?> </p>
+        <h2> <?php echo $player1_price ?>M</h2>
         <button type="button" name="validPlayer" id="idValidPlayer" onclick="validChoice(<?php $player1 ?>)">Select</button>
         </li>
     
         <li>
         <img id="idPlayerPhoto" src=<?php echo $player2_photo ?>>
         <p> <?php echo $player2_name ?></p>
+        <h2> <?php echo $player2_price ?> M</h2>
         <button type="button" name="validPlayer" id="idValidPlayer" onclick="validChoice(<?php $player2 ?>)">Select</button>
         </li>
 
         <li>
         <img id="idPlayerPhoto" src=<?php echo $player3_photo ?>>
         <p> <?php echo $player3_name ?></p>
+        <h2> <?php echo $player3_price ?> M</h2>
         <button type="button" name="validPlayer" id="idValidPlayer" onclick="validChoice(<?php $player3 ?>)">Select</button>
         </li>
     </div>
