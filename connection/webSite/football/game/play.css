@@ -8,21 +8,39 @@
     left: 25px
 }
 
-#idStriker{
-    position: fixed;
-    top: 200px;
-    left: 350px;
-    border-radius: 70%;
-    padding: 30px;
-
-}
 
 #field{
+    position: relative;
     width: 525px;
     height: auto;
     border-radius: 20px;
 
 }
+
+#idGK{
+    position: absolute;
+    top: 600px;
+    left: 224px;
+    border-radius: 70%;
+    padding: 30px;
+}
+
+#idCOM{
+    position: absolute;
+    top: 300px;
+    left: 224px;
+    border-radius: 70%;
+    padding: 30px;
+}
+
+#idBU{
+    position: absolute;
+    top: 140px;
+    left: 224px;
+    border-radius: 70%;
+    padding: 30px;
+}
+
 
 
 /* RightBox */
@@ -69,4 +87,5 @@
 #idPlayerPhoto{
     width: 100px;
     height: auto;
+    border-radius: 70%;
 }

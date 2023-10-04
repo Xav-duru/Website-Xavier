@@ -6,6 +6,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='play.css'>
     <title>Compose ton XI</title>
     <?php include ('../../../core.php'); ?>
+    <?php include ('getPlayer.php'); ?>
 
 </head>
 <body>
@@ -13,39 +14,46 @@
     $sold=$_GET['sold'];
     $league=$_GET['league'];
 
-    $team1=array();
-    function addPlayerInTeam($player){
-
-    // Return player's price
-    function getPrice($id, $mysqli) {
-        $sql_getPrice = "SELECT price
-        FROM joueurs
-        WHERE id = '".$id."'";
-
-        $result = $mysqli->query($sql_getPrice);
-        $nb = $result->num_rows;
-
-        if (!$result) { 
-            exit($mysqli->error);
-        }
-        
-        else if($nb) { 
-            $row = $result->fetch_assoc();
-
-            //Récupère le numéro de l'id de l'utilisateur
-            $num = $row['price'];
-            //echo $num;?><br><?php
-            return $num;
-        }
-    }
-
-    }
+    $team1=array();    
 
     ?>
 
     <div class="leftBox">
         <img id="field" src="terrain.jpg">
-        <button type="button" name="striker" id="idStriker" onclick="choosePlayer(value)" value="BU">
+        <div id="idPostGK">
+            <button type="button" name="idGK" id="idGK" onclick="choosePlayer(value)" value="GK">GK</button>
+        </div>
+        <div id="idPostLB">
+            <button type="button" name="idLB" id="idLB" onclick="choosePlayer(value)" value="LB">LB</button>
+        </div>
+        <div id="idPostCBL">
+            <button type="button" name="idCBL" id="idCBL" onclick="choosePlayer(value)" value="CBL">CBL</button>
+        </div>
+        <div id="idPostCBR">
+            <button type="button" name="idCBR" id="idCBR" onclick="choosePlayer(value)" value="CBR">CBR</button>
+        </div>
+        <div id="idPostRB">
+            <button type="button" name="idRB" id="idRB" onclick="choosePlayer(value)" value="RB">RB</button>
+        </div>
+        <div id="idPostDMG">
+            <button type="button" name="idDMG" id="idDMG" onclick="choosePlayer(value)" value="DMG">DMG</button>
+        </div>
+        <div id="idPostDMR">
+            <button type="button" name="idDMR" id="idDMR" onclick="choosePlayer(value)" value="DMR">DMR</button>
+        </div>
+        <div id="idPostCOM">
+            <button type="button" name="idCOM" id="idCOM" onclick="choosePlayer(value)" value="COM">COM</button>
+        </div>
+        <div id="idPostLW">
+            <button type="button" name="idLW" id="idLW" onclick="choosePlayer(value)" value="LW">LW</button>
+        </div>
+        <div id="idPostRW">
+            <button type="button" name="idRW" id="idRW" onclick="choosePlayer(value)" value="RW">RW</button>
+        </div>
+        <div id="idPostBU">
+            <button type="button" name="idBU" id="idBU" onclick="choosePlayer(value)" value="BU">BU</button>
+        </div>
+
     </div>
     
 
@@ -57,7 +65,6 @@
     </div>
 
     <script>
-    
     // Convert variable from PHP to JavaScript
     function $_GET(param) {
         var vars = {};
@@ -74,28 +81,47 @@
     }
 
     // Function after a click to a post
-    function choosePlayer(player){
-        console.log(player);
+    function choosePlayer(post){
+        console.log(post);
         var league = $_GET('league');
         console.log(league);
-        const requestSC = new XMLHttpRequest();
-        requestSC.onload = function() {
+        const request = new XMLHttpRequest();
+        request.onload = function() {
             document.getElementById("idWindowPlayer").innerHTML = this.responseText;
         }
-        requestSC.open("GET", "choosePlayer.php?post="+player+"&league="+league);
-        requestSC.send();
+        request.open("GET", "choosePlayer.php?post="+post+"&league="+league);
+        request.send();
     }
 
-    function validChoice(player){
-        console.log(player);
-        var sold = $_GET($sold)
-        const requestSC = new XMLHttpRequest();
-        requestSC.onload = function() {
-            document.getElementById("idWindowPlayer").innerHTML = this.responseText;
+    function showTeam(nb){
+        // Get Player Name
+        var idPlayer="idPlayer"+nb+"_name";
+        console.log(idPlayer);
+        var player_name=document.getElementById(idPlayer).textContent;
+        console.log(player_name);
+
+        // Get idPost
+        var post=document.getElementById('idCurrentPost').textContent;
+        var idPost="idPost"+post;
+
+        // Change post with photo
+        const request = new XMLHttpRequest();
+        request.onload = function() {
+            document.getElementById(idPost).innerHTML = this.responseText;
         }
-        requestSC.open("GET", "choosePlayer.php?post="+player+"&league="+league);
-        requestSC.send();
+        request.open("GET", "showTeam.php?player="+player_name+"&post="+post);
+        request.send();
+
+        console.log('fini');
+        const request2 = new XMLHttpRequest();
+        request2.onload = function() {
+            document.getElementById('idWindowPlayer').innerHTML = this.responseText;
+        }
+        request2.open("GET", "showField.php");
+        request2.send();
+
     }
+
     
     </script>
 </body>

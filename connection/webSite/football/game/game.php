@@ -16,6 +16,7 @@
         if(isset($_GET['submitParameters'])){
             $sold = $_GET['sold'];
             $league = $_GET['league'];
+            $league = str_replace(" ","",$league);
             echo $sold;
             header('Location: play.php?sold='.$sold.'&league='.$league);
         }
