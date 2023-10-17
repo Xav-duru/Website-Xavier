@@ -12,6 +12,9 @@
       <a href="game/game.php">
         Play game
     </a>
+    <a href="coach/coach.php">
+        Coaching
+    </a>
             
 
 </body>

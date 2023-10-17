@@ -16,7 +16,7 @@
 
     $sql_oldPassword = "SELECT password
     FROM Users
-    WHERE username = '".$username."'";
+    WHERE username = '".$username."'";  
 
     $result_oldP = $mysqli->query($sql_oldPassword);
     $row_oldP = $result_oldP->fetch_assoc();

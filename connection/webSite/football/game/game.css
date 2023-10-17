@@ -1,0 +1,35 @@
+div#twoBoxes div{
+    display: inline-block;
+    width: 35%;
+}
+
+div.leftBox{
+    text-align: center;
+    flex : inline-block;
+    width: 500px;
+    margin-right: 20px;
+    margin-left: 100px;
+    background-color: #123456;
+    padding: 10px;
+    border-style: solid;
+    border-color: #d7be69;
+    border-width: 5px;
+    border-radius: 20px;
+    color:#d7be69;
+}
+
+div.rightBox{
+    text-align: center;
+    flex : inline-block;
+    width: 500px;
+    margin-right: 20px;
+    margin-left: 100px;
+    background-color: #123456;
+    padding: 10px;
+    border-style: solid;
+    border-color: #d7be69;
+    border-width: 5px;
+    border-radius: 20px;
+    color:#d7be69;
+}
+

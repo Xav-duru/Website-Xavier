@@ -1,17 +1,15 @@
-/* LeftBox */
-
 
 .leftBox{
     text-align: center;
     position: fixed;
-    top: 25px;
+    top: 0          px;
     left: 25px
 }
 
 
-#field{
+#idField{
     position: relative;
-    width: 500px;
+    width: 530px;
     height: auto;
     border-radius: 20px;
 
@@ -19,7 +17,7 @@
 
 #idGK{
     position: absolute;
-    top: 600px;
+    top: 650px;
     left: 224px;
     border-radius: 70%;
     padding: 30px;
@@ -107,7 +105,6 @@
 
 
 
-/* RightBox */
 
 .rightBox{
     position: fixed;
@@ -115,41 +112,4 @@
     left: 600px;
 }
 
-.rightBox.h1{
-    color:#123456;
-}
 
-#idWindowPlayer{
-    border-style: solid;
-    border-color: #123456;
-    border-width: 5px;
-    border-radius: 20px;
-    padding:15px;
-    
-}
-
-.blockThreePlayer li{
-    text-align: center;
-    display: inline-block;
-    border-style: solid;
-    border-color: #123456;
-    border-width: 5px;
-    border-radius: 20px;
-    padding: 30px;
-    width: 120px;
-    height: 120px;
-}
-
-.blockThreePlayer h1{
-    text-align: center;
-}
-
-#idValidPlayer{
-    padding: 5px;
-}
-
-#idPlayerPhoto{
-    width: 100px;
-    height: auto;
-    border-radius: 70%;
-}

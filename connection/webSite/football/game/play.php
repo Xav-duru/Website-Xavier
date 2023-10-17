@@ -14,7 +14,7 @@
     $sold=$_GET['sold'];
     $league=$_GET['league'];
 
-    $team1=array();    
+    $team1=array();
 
     ?>
 
@@ -26,20 +26,20 @@
         <div id="idPostLB">
             <button type="button" name="idLB" id="idLB" onclick="choosePlayer(value)" value="LB">LB</button>
         </div>
-        <div id="idPostCBL">
-            <button type="button" name="idCBL" id="idCBL" onclick="choosePlayer(value)" value="CBL">CBL</button>
+        <div id="idPostLCB">
+            <button type="button" name="idLCB" id="idLCB" onclick="choosePlayer(value)" value="LCB">LCB</button>
         </div>
-        <div id="idPostCBR">
-            <button type="button" name="idCBR" id="idCBR" onclick="choosePlayer(value)" value="CBR">CBR</button>
+        <div id="idPostRCB">
+            <button type="button" name="idRCB" id="idRCB" onclick="choosePlayer(value)" value="RCB">RCB</button>
         </div>
         <div id="idPostRB">
             <button type="button" name="idRB" id="idRB" onclick="choosePlayer(value)" value="RB">RB</button>
         </div>
-        <div id="idPostDMG">
-            <button type="button" name="idDMG" id="idDMG" onclick="choosePlayer(value)" value="DMG">DMG</button>
+        <div id="idPostLDM">
+            <button type="button" name="idLDM" id="idLDM" onclick="choosePlayer(value)" value="LDM">LDM</button>
         </div>
-        <div id="idPostDMR">
-            <button type="button" name="idDMR" id="idDMR" onclick="choosePlayer(value)" value="DMR">DMR</button>
+        <div id="idPostRDM">
+            <button type="button" name="idRDM" id="idRDM" onclick="choosePlayer(value)" value="RDM">RDM</button>
         </div>
         <div id="idPostCOM">
             <button type="button" name="idCOM" id="idCOM" onclick="choosePlayer(value)" value="COM">COM</button>
@@ -50,9 +50,10 @@
         <div id="idPostRW">
             <button type="button" name="idRW" id="idRW" onclick="choosePlayer(value)" value="RW">RW</button>
         </div>
-        <div id="idPostBU">
-            <button type="button" name="idBU" id="idBU" onclick="choosePlayer(value)" value="BU">BU</button>
+        <div id="idPostST">
+            <button type="button" name="idST" id="idST" onclick="choosePlayer(value)" value="ST">ST</button>
         </div>
+        
 
     </div>
     

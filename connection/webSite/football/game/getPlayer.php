@@ -74,7 +74,7 @@ function getPrice($id, $mysqli) {
 
 // Return player's photo
 function getPhoto($id, $mysqli) {
-    $sql_getPhoto = "SELECT picture
+    $sql_getPhoto = "SELECT name
     FROM joueurs
     WHERE id = '".$id."'";
 
@@ -89,7 +89,7 @@ function getPhoto($id, $mysqli) {
         $row = $result->fetch_assoc();
 
         //Récupère le numéro de l'id de l'utilisateur
-        $num = $row['picture'];
+        $num = $row['name'];
         return $num;
     }
 }
@@ -116,7 +116,7 @@ function getPost($name, $mysqli) {
 }
 
 function getPhotoByName($name, $mysqli) {
-    $sql_getPhoto = "SELECT picture
+    $sql_getPhoto = "SELECT name
     FROM joueurs
     WHERE name = '".$name."'";
 
@@ -131,17 +131,63 @@ function getPhotoByName($name, $mysqli) {
         $row = $result->fetch_assoc();
 
         //Récupère le numéro de l'id de l'utilisateur
-        $num = $row['picture'];
+        $num = $row['name'];
 
         return $photo;
     }
 }
 
-function getNumberPost($post){
-    if ($post=='BU'){
-        $num=9;
+function getRefTM($name, $mysqli) {
+    $sql_getPost = "SELECT refTransferMarket
+    FROM joueurs
+    WHERE name = '".$name."'";
+
+    $result = $mysqli->query($sql_getPost);
+    $nb = $result->num_rows;
+
+    if (!$result) { 
+        exit($mysqli->error);
     }
-    return $num;
+    
+    else if($nb) { 
+        $row = $result->fetch_assoc();
+
+        $num = $row['refTransferMarket'];
+        return $num;
+    }
+}
+
+function getFirstNameByName($name, $mysqli) {
+    $sql_getPost = "SELECT firstName
+    FROM joueurs
+    WHERE name = '".$name."'";
+
+
+    $result = $mysqli->query($sql_getPost);
+    $nb = $result->num_rows;
+    echo $nb;
+
+    if (!$result) { 
+        exit($mysqli->error);
+    }
+    
+    else if($nb) { 
+        $row = $result->fetch_assoc();
+
+        $num = $row['firstName'];
+        echo $num;
+
+        return $num;
+    
+    }
+
+}
+
+function getGoodForm($getWord){
+    $word=trim($getWord);
+    $word=str_replace(" ","-",$word);
+    $word=strtolower($word);
+    return $word;
 }
 
 

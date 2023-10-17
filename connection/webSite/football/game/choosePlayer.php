@@ -15,7 +15,6 @@
         
         $post=$_GET['post'];
         $league=$_GET['league']; 
-        $numPost=getNumberPost($post);
 
         $player1 = getRandomPlayer($post, $league, $mysqli);
         $player1_name=getName($player1, $mysqli);
@@ -29,7 +28,8 @@
         $player2_name=getName($player2, $mysqli);
         $player2_price=getPrice($player2, $mysqli);
         $player2_photo=getPhoto($player2, $mysqli);
-        $player2_photo="photo_Players/".str_replace(" ","",$player2_name).".png";
+        $player2_photo="photo_Players/".str_replace(" ","",$player2_name).".png";        
+        
 
 
         $player3 = $player2;
@@ -50,21 +50,21 @@
             <p id='idPlayer1_name'><?php echo $player1_name ?> </p>
             <h2> <?php echo $player1_price ?> M</h2>
             
-            <button type="button" name="validPlayer1" id="idValidPlayer", value="<?php echo $player1_name ?>", onclick="showTeam(1)"><?php echo $player1_name ?></button>
+            <button type="button" name="validPlayer1" id="idValidPlayer" value="<?php echo $player1_name ?>" onclick="showTeam(1)"><?php echo $player1_name ?></button>
         </li>
     
         <li>
             <img id="idPlayerPhoto" src=<?php echo $player2_photo ?>>
             <p id='idPlayer2_name'> <?php echo $player2_name ?></p>
             <h2> <?php echo $player2_price ?> M</h2>
-            <button type="button" name="validPlayer2" id="idValidPlayer"onclick="showTeam(2)">Select</button>
+            <button type="button" name="validPlayer2" id="idValidPlayer" value="<?php echo $player2_name ?>" onclick="showTeam(2)"><?php echo $player2_name ?></button>
         </li>
 
         <li>
             <img id="idPlayerPhoto" src=<?php echo $player3_photo ?>>
             <p id='idPlayer3_name'> <?php echo $player3_name ?></p>
             <h2> <?php echo $player3_price ?> M</h2>
-            <button type="button" name="validPlayer3" id="idValidPlayer" onclick="showTeam(3)">Select</button>
+            <button type="button" name="validPlayer3" id="idValidPlayer" value="<?php echo $player3_name ?>" onclick="showTeam(3)"><?php echo $player3_name ?></button>
         </li>
     </div>
     </body>
