@@ -2,114 +2,31 @@
 .leftBox{
     text-align: center;
     position: fixed;
-    top: 0          px;
+    top: 0px;
     left: 25px
 }
 
-
-#idField{
+.body{
     position: relative;
-    width: 530px;
-    height: auto;
-    border-radius: 20px;
-
 }
 
-#idGK{
-    position: absolute;
-    top: 650px;
-    left: 224px;
+
+
+
+#idBtn{
     border-radius: 70%;
-    padding: 30px;
+    padding: 20px;
 }
 
-#idLB{
-    position: absolute;
-    top: 450px;
-    left: 70px;
-    border-radius: 70%;
-    padding: 30px;
+.dragging {
+    opacity: 0.6;
 }
-
-#idLCB{
-    position: absolute;
-    top: 500px;
-    left: 175px;
-    border-radius: 70%;
-    padding: 30px;
-}
-
-#idRCB{
-    position: absolute;
-    top: 500px;
-    left: 273px;
-    border-radius: 70%;
-    padding: 30px;
-}
-
-#idRB{
-    position: absolute;
-    top: 450px;
-    left: 380px;
-    border-radius: 70%;
-    padding: 30px;
-}
-
-#idLDM{
-    position: absolute;
-    top: 350px;
-    left: 160px;
-    border-radius: 70%;
-    padding: 30px;
-}
-
-#idRDM{
-    position: absolute;
-    top: 350px;
-    left: 288px;
-    border-radius: 70%;
-    padding: 30px;
-}
-
-#idCOM{
-    position: absolute;
-    top: 270px;
-    left: 224px;
-    border-radius: 70%;
-    padding: 30px;
-}
-
-#idLW{
-    position: absolute;
-    top: 180px;
-    left: 70px;
-    border-radius: 70%;
-    padding: 30px;
-}
-
-#idRW{
-    position: absolute;
-    top: 180px;
-    left: 380px;
-    border-radius: 70%;
-    padding: 30px;
-}
-
-#idST{
-    position: absolute;
-    top: 140px;
-    left: 224px;
-    border-radius: 70%;
-    padding: 30px;
-}
-
-
 
 
 .rightBox{
     position: fixed;
     top: 50px;
-    left: 600px;
+    left: 700px;
 }
 
 

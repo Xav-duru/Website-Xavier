@@ -10,39 +10,39 @@
 <body>
     <div class="leftBox">
     <h1 style="text-align:center">Create your own compo</h1>
-        <img id="idField" src="terrain.jpg">
-        <div id="idPostGK">
-            <button type="button" name="player" id="idGK" draggable="true" ondragend=true value="GK">GK</button>
+        <canvas id="monCanevas" width="600" height="800" style="border-radius: 5%;"></canvas>
+        <div id="id1">
+            <button type="button" name="player" id="idBtn" class="widget" draggable="true" ondragend=true style="position: absolute; top: 750px; left: 240px;"> </button>
         </div>
-        <div id="idPostLB">
-            <button type="button" name="player" id="idLB" value="LB">LB</button>
+        <div id="id2">
+            <button type="button" name="player" id="idBtn" class="widget" draggable="true" ondragend=true style="position: absolute; top: 550px; left: 70px;"></button>
         </div>
-        <div id="idPostLCB">
-            <button type="button" name="player" id="idLCB" value="LCB">LCB</button>
+        <div id="id3">
+            <button type="button" name="player" id="idBtn" class="widget" draggable="true" ondragend=true style="position: absolute; top: 600px; left: 180px;"></button>
         </div>
-        <div id="idPostRCB">
-            <button type="button" name="player" id="idRCB" value="RCB">RCB</button>
+        <div id="id4">
+            <button type="button" name="player" id="idBtn" class="widget" draggable="true" ondragend=true style="position: absolute; top: 600px; left: 300px;"></button>
         </div>
-        <div id="idPostRB">
-            <button type="button" name="player" id="idRB" value="RB">RB</button>
+        <div id="id5">
+            <button type="button" name="player" id="idBtn" class="widget" draggable="true" ondragend=true style="position: absolute; top: 550px; left: 410px;"></button>
         </div>
-        <div id="idPostLDM">
-            <button type="button" name="idLDM" id="idLDM" value="LDM">LDM</button>
+        <div id="id6">
+            <button type="button" name="player" id="idBtn" class="widget" style="position: absolute; top: 450px; left: 180px;"></button>
         </div>
-        <div id="idPostRDM">
-            <button type="button" name="idRDM" id="idRDM" value="RDM">RDM</button>
+        <div id="id7">
+            <button type="button" name="player" id="idBtn" class="widget" style="position: absolute; top: 450px; left: 300px;"></button>
         </div>
-        <div id="idPostCOM">
-            <button type="button" name="idCOM" id="idCOM" value="COM">COM</button>
+        <div id="id8">
+            <button type="button" name="player" id="idBtn" class="widget" style="position: absolute; top: 340px; left: 240px;"></button>
         </div>
-        <div id="idPostLW">
-            <button type="button" name="idLW" id="idLW" value="LW">LW</button>
+        <div id="id9">
+            <button type="button" name="player" id="idBtn" class="widget" style="position: absolute; top: 250px; left: 70px;"></button>
         </div>
-        <div id="idPostRW">
-            <button type="button" name="idRW" id="idRW" value="RW">RW</button>
+        <div id="id10">
+            <button type="button" name="player" id="idBtn" class="widget" style="position: absolute; top: 250px; left: 410px;"></button>
         </div>
-        <div id="idPostST">
-            <button type="button" name="idST" id="idST" value="ST">ST</button>
+        <div id="id11">
+            <button type="button" name="player" id="idBtn" class="widget" style="position: absolute; top: 200px; left: 240px;"></button>
         </div>
 
     </div>
@@ -102,15 +102,61 @@
     </div>
 
     <script>
-    const widget = document.getElementById("idLB") || document.getElementById("idGK");
+        const canevas = document.getElementById("monCanevas");
+    const context = canevas.getContext("2d");
+
+    const image = new Image();
+    image.src = "terrain.jpg";
+
+    image.onload = function() {
+        context.drawImage(image, 0, 0, canevas.width, canevas.height);
+        // Vous pouvez ajuster les coordonnées (0, 0) et les dimensions (canevas.width, canevas.height) selon vos besoins.
+    };
+
+    const widgets = document.querySelectorAll('.widget');
     const field = document.getElementById("idField");
     let isDragging = false;
+    let currentWidget = null;
     let offsetX, offsetY;
 
+    widgets.forEach(widget => {
+        widget.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            currentWidget = widget;
+            offsetX = e.clientX - widget.getBoundingClientRect().left;
+            offsetY = e.clientY - widget.getBoundingClientRect().top;
+            widget.classList.add('dragging');
+        });
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            const x = e.clientX - offsetX;
+            const y = e.clientY - offsetY;
+            // Limiter les déplacements du widget dans l'image de fond
+            //const maxX = field.offsetWidth - currentWidget.offsetWidth;
+            //const maxY = field.offsetHeight+50 - currentWidget.offsetHeight;
+            
+            if (x >= 0 && x <= 700) {
+                currentWidget.style.left = x + "px";
+            }
+            if (y >= 75 && y <= 700) {
+                currentWidget.style.top = y + "px";
+            }
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (isDragging) {
+            currentWidget.classList.remove('dragging');
+            isDragging = false;
+        }
+    });
+    /*
     widget.addEventListener("mousedown", (e) => {
-    isDragging = true;
-    offsetX = e.clientX - widget.getBoundingClientRect().left;
-    offsetY = e.clientY - widget.getBoundingClientRect().top;
+        isDragging = true;
+        offsetX = e.clientX - widget.getBoundingClientRect().left;
+        offsetY = e.clientY - widget.getBoundingClientRect().top;
     });
 
     document.addEventListener("mousemove", (e) => {
@@ -119,12 +165,12 @@
             const y = e.clientY - offsetY;
             // Limiter les déplacements du widget dans l'image de fond
             const maxX = field.offsetWidth - widget.offsetWidth;
-            const maxY = field.offsetHeight - widget.offsetHeight;
+            const maxY = field.offsetHeight+50 - widget.offsetHeight;
 
             if (x >= 0 && x <= maxX) {
             widget.style.left = x + "px";
             }
-            if (y >= 0 && y <= maxY) {
+            if (y >= 75 && y <= maxY) {
             widget.style.top = y + "px";
             }
         }
@@ -133,6 +179,7 @@
     document.addEventListener("mouseup", () => {
     isDragging = false;
     });
+    */
     </script>
 
 </body>
