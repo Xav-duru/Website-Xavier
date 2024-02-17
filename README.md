@@ -29,4 +29,4 @@ J'ai réalisé ce site pour m'amuser pendant mon temps libre. Cela reste un site
 <br>
 
 
-J'ai pris beaucoup de plaisir à travailler en autonomie et apprendre un language en étant complètement libre.
+J'ai pris beaucoup de plaisir à travailler en autonomie et à apprendre les bases du Web.
