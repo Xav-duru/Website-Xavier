@@ -1,5 +1,4 @@
 **Site Web personnel**
-
 Je me suis créé un site web en local grâce au serveur WAMPServeur.
 J'ai réalisé ce site pour m'amuser pendant mon temps libre. Cela reste un site simple pour découvrir de manière autonome le monde du WEB. 
 <br>
